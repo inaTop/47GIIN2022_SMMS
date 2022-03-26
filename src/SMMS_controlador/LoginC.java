@@ -10,7 +10,7 @@ package SMMS_controlador;
 
 
 
-import SMMS_modelo.Consulta;
+import SMMS_modelo.ConsultaUsuario;
 
 /**
  * Clase controlAutenticacion 
@@ -36,7 +36,7 @@ public class LoginC {
     */
     public String autenticar(){
         
-        Consulta consulta=new Consulta();
+        ConsultaUsuario consulta=new ConsultaUsuario();
         return consulta.select_nom_usuario(nombre);
     }
 }

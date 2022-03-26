@@ -19,10 +19,10 @@ import java.util.logging.Logger;
  */
 public class Conexion {
      static Connection conn=null;
-     String bd="SMMS";
-     String url="";
-     String user="admin";
-     String pass="12345";
+     String bd="smmsBD";
+     String url="Mysql@127.0.0.1:3306";
+     String user="root";
+     String pass="123456";
      String driver="com.mysql.jdbc.Driver";        
    
     /**
@@ -31,7 +31,7 @@ public class Conexion {
     public void conector() {
         try {
             conn=DriverManager.getConnection(url,user,pass);
-            System.out.println("conexion establecida");
+            System.out.println("Conexion establecida");
         } 
         catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
