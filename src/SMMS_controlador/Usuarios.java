@@ -8,39 +8,47 @@
 package SMMS_controlador;
 
 /**
- * Clase UsuariosC 
+ * Clase Usuarios 
  * @author:  Inés Topalli
  */
-public class UsuariosC {
+public class Usuarios {
+    private int idusuario;
     private String nom_usuario;
     private String pass;
-    private String ap;
     private String email;
-    private final String tel;
-    private String estado;
-    private String org;
+    private String empresa;
     
     
     /**
      * Constructor de la clase usuario
+     * @param idusuario identificador del usuario
      * @param nom_usuario Nombre del Usuario
      * @param password Password o contraseña del usuario
-     * @param ap appelidos
-     * @param tel telefono
      * @param email 
-     * @param estado si el usuario está activo o de baja en el sistema
-     * @param org organización a la que pertenece
+     * @param empresa empresa a la que pertenece
      */
-    public UsuariosC(String nom_usuario, String password, String ap, String tel, String email, String estado , String org) {
+    public Usuarios(Integer idusuario,String nom_usuario, String password, String email , String empresa) {
+        this.idusuario=idusuario;
         this.nom_usuario = nom_usuario;
         this.pass = password;
-        this.ap = ap;
-        this.tel = tel;
         this.email = email;
-        this.org=org;
-        this.estado=estado;
+        this.empresa=empresa;
     }
 
+    public Usuarios(String nom_usuario, String pass, String email, String empresa) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+        /**
+     * Consulta el identificador del Usuario
+     * @return Devuelve el nombre del usuario
+     */
+    public int getID_usuario() {
+        return idusuario;
+    }
+
+    
+    
     /**
      * Consulta el Nombre del Usuario
      * @return Devuelve el nombre del usuario
@@ -57,16 +65,6 @@ public class UsuariosC {
         return pass;
     }
 
-    /**
-     * 
-     * @return Devuelve los apellidos del usuario
-     */
-    
-    
-    public String getApellidos() {
-        return ap;
-    }
-    
     
     /**
      * 
@@ -76,33 +74,25 @@ public class UsuariosC {
         return email;
     }
 
-    /**
-     * 
-     * @return Devuelve el telefono del usuario
-     */
-    public String getTel() {
-        return tel;
-    }
-    
-    /**
-     * 
-     * @return Devuelve el estado del usuario si está activo o no en el sistema
-     */
-    public String getStatus() {
-        return estado;
-    }
-    
+
     /**
      * 
      * @return Devuelve la organización a la que pertenece el  usuario
      */
-    public String getOrg() {
-        return org;
+    public String getEmpresa() {
+        return empresa;
     }
     
     
     
-    
+        
+    /**
+     * Modifica el ID del usuario
+     * @param idusuario Nombre del usuario
+     */
+    public void setID_usuario(int idusuario) {
+        this.idusuario = idusuario;
+    }
     
     /**
      * Modifica el nombre del usuario
@@ -121,20 +111,25 @@ public class UsuariosC {
     }
 
     /**
-     * Modifica los apellidos del usuario
-     * @param ap
-     */
-    public void setApellidos(String ap) {
-        this.ap = ap;
-    }
-    
-    /**
      * Modifica el email del usuario
      * @param email
      */
     public void setEmail(String email) {
         this.email = email;
     }
+    
+     /**
+     * Modifica la organización del usuario
+     * @param empresa
+     */
+    public void setOrg(String empresa) {
+        this.empresa = empresa;
+    }
+    
+    
+    
+    
+    
     
     
 }

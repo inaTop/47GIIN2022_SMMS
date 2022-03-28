@@ -7,7 +7,7 @@
 */
 package SMMS_modelo;
 
-import SMMS_controlador.UsuariosC;
+import SMMS_controlador.Usuarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,35 +23,33 @@ import static SMMS_modelo.Conexion.conn;
  */
 public class UsuariosM extends Conexion {
 
-    private UsuariosC usuario;
+    private Usuarios usuario;
 
     /**
      * Constructor del Usuario en Vista Modelo
      * @param usuario
      */
-    public UsuariosM(UsuariosC usuario) {
+    public UsuariosM(Usuarios usuario) {
         this.usuario = usuario;
     }
     
     /**
      * Constructor del Usuario en Vista Modelo
-     * @param nombre_usuario
-     * @param password
-     * @param ap
-     * @param tel
+     * @param nom_usuario
+     * @param pass
      * @param email
-     * @param org
-     * @param estado
+     * @param empresa
+ 
      */
-    public UsuariosM(String nombre_usuario, String password, String ap,String tel,String email,String org, String estado) {
-        usuario = new UsuariosC(nombre_usuario, password, ap, tel,email,org, estado);
+    public UsuariosM(String nom_usuario, String pass,String email,String empresa) {
+        usuario = new Usuarios(nom_usuario, pass,email,empresa);
     }
 
     /**
      * Obtiene el Usuario 
      * @return Devuelve el objeto usuario
      */
-    public UsuariosC getUsuario() {
+    public Usuarios getUsuario() {
         return usuario;
     }
 
@@ -59,7 +57,7 @@ public class UsuariosM extends Conexion {
      * aplica el objeto Usuario
      * @param usuario Usuario que queremos aplicar
      */
-    public void setUsuario(UsuariosC usuario) {
+    public void setUsuario(Usuarios usuario) {
         this.usuario = usuario;
     }
     
@@ -68,14 +66,14 @@ public class UsuariosM extends Conexion {
      * @param usuario Usuario que queremos añadir
      * @return
      */
-    public boolean anadeUsuario(UsuariosC usuario) {
+    public boolean anadeUsuario(Usuarios usuario) {
         //this.usuario = usuario;
         System.out.println("Añadimos el registro " + usuario.getNombre_usuario());
         try {
             //abreBaseDatos();
             //Aqui todo el codigo para añadir de la base de datos  a través de sql
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO `smms`.`usuarios` (`nombre`, `clave`, `tipo_usuario`) VALUES ('"+ this.usuario.getNombre_usuario()+"', '"+this.usuario.getPassword()+"', '"+this.usuario.getTipo()+"');");
+            stmt.executeUpdate("INSERT INTO `smms`.`usuarios` (`id`,`nombre`, `pass`, `email`, `empresa`) VALUES ('"+ this.usuario.getID_usuario()+"','"+ this.usuario.getNombre_usuario()+"', '"+this.usuario.getPassword()+"',' "+this.usuario.getEmail()+"','"+this.usuario.getEmpresa()+"');");
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(UsuariosM.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,18 +86,19 @@ public class UsuariosM extends Conexion {
      * @param usuario Usuario que queremos modificar
      * @return
      */
-    public boolean modificaUsuario(UsuariosC usuario) {
+    public boolean modificaUsuario(Usuarios usuario) {
         //this.usuario = usuario;
          System.out.println("Modificamos el registro " + usuario.getNombre_usuario());
         //Aqui todo el codigo para modificar de la base de datos a través de sql
          PreparedStatement ps;
         try {
             ps = conn.prepareStatement(
-                    "UPDATE supercomputacion.usuarios SET nombre = ?, clave = ?, tipo= ? WHERE nombre = ? ");
+                    "UPDATE mps.usuarios SET nombre = ?, clave = ?, email = ?, empresa = ? WHERE nombre = ? ");
             // set the preparedstatement parameters
             ps.setString(1,usuario.getNombre_usuario());
             ps.setString(2,usuario.getPassword());
-            ps.setString(3,usuario.getTipo());
+            ps.setString(3,usuario.getEmail());
+            ps.setString(4,usuario.getEmpresa());
             ps.executeUpdate();
             ps.close();
             return true;
@@ -115,14 +114,14 @@ public class UsuariosM extends Conexion {
      * @param usuario Usuario que queremos eliminar
      * @return
      */
-    public boolean eliminaUsuario(UsuarioSC usuario) {
+    public boolean eliminaUsuario(Usuarios usuario) {
         //this.usuario = usuario;
         System.out.println("Borramos el registro " + usuario.getNombre_usuario());
         //Aqui todo el codigo para borrar de la base de datos  a través de sql
         PreparedStatement ps;
         try {
             ps = conn.prepareStatement(
-                    "DELETE supercomputacion.usuarios WHERE nombre = ? ");
+                    "DELETE smms.usuarios WHERE nombre = ? ");
             // set the preparedstatement parameters
            
             ps.executeUpdate();
@@ -139,7 +138,7 @@ public class UsuariosM extends Conexion {
      * @param usuario Usuario que quremos buscar en la base de datos
      * @return
      */
-    public boolean buscar(UsuarioSC usuario)
+    public boolean buscar(Usuarios usuario)
     {
         PreparedStatement ps = null;
         ResultSet rs=null;
@@ -155,9 +154,10 @@ public class UsuariosM extends Conexion {
             
             if (rs.next())
             {   //Enviamos sus atributos de usuario
-                usuario.setNombre_usuario(rs.getString("nombre"));
-                usuario.setPassword(rs.getString("password"));
-                usuario.setTipo(rs.getString("tipo"));
+                usuario.setNom_usuario(rs.getString("nombre"));
+                usuario.setPass(rs.getString("password"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setOrg(rs.getString("empresa"));
                 return true;
                 
             }

@@ -20,10 +20,10 @@ import java.util.logging.Logger;
 public class Conexion {
      static Connection conn=null;
      String bd="smmsBD";
-     String url="Mysql@127.0.0.1:3306";
+     String url="jdbc:mysql://localhost:3306/smmsBD";
      String user="root";
      String pass="123456";
-     String driver="com.mysql.jdbc.Driver";        
+     String driver="com.mysql.cj.jdbc.Driver";        
    
     /**
      * Funci�n que permite conectar a la base de datos 
