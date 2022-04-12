@@ -5,8 +5,6 @@
 package SMMS_controlador;
 
 import javax.swing.JOptionPane;
-import SMMS_modelo.Empresa;
-import SMMS_vista.EmpresaV;
 
 
 

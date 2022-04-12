@@ -11,18 +11,16 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-
 /**
  *
  * @author: Ines Topalli
  */
 public class Conexion {
      static Connection conn=null;
-     String bd="smmsBD";
-     String url="jdbc:mysql://localhost:3306/smmsBD";
+     String bd="mps";
+     String url="jdbc:mysql://localhost:3306/mps";
      String user="root";
-     String pass="123456";
+     String pass="";
      String driver="com.mysql.cj.jdbc.Driver";        
    
     /**
