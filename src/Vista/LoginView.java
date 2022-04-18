@@ -5,6 +5,7 @@
 package Vista;
 
 import Modelo.Conexion;
+import static Modelo.Conexion.conectarBD;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,6 +48,8 @@ public class LoginView extends javax.swing.JFrame implements ActionListener{
         entrarbtn = new javax.swing.JButton();
         iconouserlbl = new javax.swing.JLabel();
         pass_jpass = new javax.swing.JPasswordField();
+        usuario_lbl = new javax.swing.JLabel();
+        pass_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("login");
@@ -68,7 +71,6 @@ public class LoginView extends javax.swing.JFrame implements ActionListener{
         jPanel1.setName(""); // NOI18N
 
         username_txt.setForeground(new java.awt.Color(204, 204, 204));
-        username_txt.setText("Usuario");
         username_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 username_txtActionPerformed(evt);
@@ -94,38 +96,50 @@ public class LoginView extends javax.swing.JFrame implements ActionListener{
         iconouserlbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/userblu.png"))); // NOI18N
 
         pass_jpass.setForeground(new java.awt.Color(204, 204, 204));
-        pass_jpass.setText("Contraseña");
+
+        usuario_lbl.setForeground(new java.awt.Color(0, 153, 255));
+        usuario_lbl.setText("Usuario:");
+
+        pass_lbl.setForeground(new java.awt.Color(0, 153, 255));
+        pass_lbl.setText("Contraseña:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(109, 109, 109)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(entrarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(355, 355, 355)
-                        .addComponent(iconouserlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(276, 276, 276)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(pass_jpass, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(username_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(entrarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(259, Short.MAX_VALUE))
+                        .addComponent(usuario_lbl)
+                        .addGap(29, 29, 29)
+                        .addComponent(username_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(pass_lbl)
+                .addGap(29, 29, 29)
+                .addComponent(pass_jpass, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(iconouserlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(27, 27, 27)
                 .addComponent(iconouserlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(username_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usuario_lbl))
                 .addGap(18, 18, 18)
-                .addComponent(username_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pass_jpass, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pass_jpass, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pass_lbl))
+                .addGap(26, 26, 26)
                 .addComponent(entrarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,7 +154,8 @@ public class LoginView extends javax.swing.JFrame implements ActionListener{
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar_login, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,35 +163,45 @@ public class LoginView extends javax.swing.JFrame implements ActionListener{
 
     private void entrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarbtnActionPerformed
 
+        int resultado=0;
         
         try{
             
-         Conexion conex= new Conexion();
-         String pass=String.valueOf(pass_jpass.getPassword());
-         String usuario=username_txt.getText();  
-         
-         String SQL;
-         SQL = "SELECT idUsuarios,nom_usuarios FROM usuarios WHERE USUARIOS='"+usuario+"' and passw='"+pass+"' ";
-         
+        Connection conex=null;
+        Statement st=null;
+        ResultSet rs=null;
         
+        String pass=String.valueOf(pass_jpass.getPassword());
+        String usuario=username_txt.getText(); 
+        String sql;
+        sql = "SELECT idUsuarios,nom_usuarios FROM usuarios WHERE nom_usuarios='"+usuario+"' and passw='"+pass+"' ";
+         conex=Conexion.conectarBD();
+ 
          
-         conex.resultado=conex.sentencia.executeQuery(SQL);
-         if(conex.resultado.next()){
-             setVisible(false);
-             Home h=new Home();
-             //h.estadoConexion_lbl.setText("Bienvenido"+ conex.resultado.getString("nom_usuarios"));
-             h.setVisible(true);
-             
-         }else{
-             JOptionPane.showMessageDialog(null, "Acceso denegado! Usuario o contraseña incorrecto");
-         }
+         
+          st=conex.createStatement();
+          rs=st.executeQuery(sql);
 
+         
+         if (rs.next()){
+             resultado=1;
+             if(resultado==1){
+                 Home h = new Home();
+                 h.setVisible(true);
+                 this.dispose();
+             }
+             
+              }else{
+             
+                  JOptionPane.showMessageDialog(null, "Acceso denegado! Usuario incorrecto");
+                   }
+            
             
         } catch (HeadlessException | SQLException e) {
             
             JOptionPane.showMessageDialog(null," Error:  " + e.getMessage());
-        }   
-  
+        }
+      
     }//GEN-LAST:event_entrarbtnActionPerformed
 
     private void username_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username_txtActionPerformed
@@ -234,8 +259,10 @@ public class LoginView extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar_login;
     private javax.swing.JPasswordField pass_jpass;
+    private javax.swing.JLabel pass_lbl;
     private javax.swing.JLabel tituloLoginlb;
     private javax.swing.JTextField username_txt;
+    private javax.swing.JLabel usuario_lbl;
     // End of variables declaration//GEN-END:variables
 
     @Override

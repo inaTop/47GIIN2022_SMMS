@@ -4,11 +4,13 @@
  */
 package Controlador;
 
+import Vista.LoginView;
+
 /**
  *
  * @author InaRu
  */
-public class SMMS {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -16,8 +18,10 @@ public class SMMS {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Login login=new Login();
-        //login.setVisible(true);
+        LoginView login= new LoginView();
+        login.setVisible(true);
+        
+        
     }
     
 }

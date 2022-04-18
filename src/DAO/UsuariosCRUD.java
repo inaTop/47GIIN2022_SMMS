@@ -11,8 +11,6 @@ import java.util.List;
 import Modelo.Conexion;
 
 import Modelo.UsuariosM;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
