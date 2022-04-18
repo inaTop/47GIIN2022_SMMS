@@ -16,32 +16,37 @@
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="jM_Empresas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Empresas"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jM_usuarios">
           <Properties>
             <Property name="text" type="java.lang.String" value="Usuarios"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="jM_Proyectos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Proyectos"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="jM_tareas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tareas"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu6">
+        <Menu class="javax.swing.JMenu" name="jM_clientes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="jM_fact">
           <Properties>
             <Property name="text" type="java.lang.String" value="Facturaci&#xf3;n"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
+        <Menu class="javax.swing.JMenu" name="jM_informes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Informes "/>
           </Properties>
@@ -92,10 +97,22 @@
         </Constraint>
       </Constraints>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-        <Property name="columns" type="int" value="0"/>
-        <Property name="rows" type="int" value="1"/>
-      </Layout>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="estadoConexion_lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Estado Conexion"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card2"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+      </SubComponents>
     </Container>
   </SubComponents>
 </Form>

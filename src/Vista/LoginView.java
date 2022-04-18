@@ -2,32 +2,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package SMMS_vista;
+package Vista;
 
-import SMMS_modelo.Conexion;
+import Modelo.Conexion;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import javax.swing.JOptionPane;
+
+
 
 /**
  *
  * @author InaRu
  */
-public class Login extends javax.swing.JFrame implements ActionListener{
+public class LoginView extends javax.swing.JFrame implements ActionListener{
     
-      Conexion c= new Conexion();
-      Connection con=c.getConexion();
+   
+    
 
     /**
      * Creates new form NewJFrame
      */
-    public Login() {
+    public LoginView() {
+        
         initComponents();
+        
     }
 
     /**
@@ -58,7 +59,7 @@ public class Login extends javax.swing.JFrame implements ActionListener{
         tituloLoginlb.setForeground(new java.awt.Color(255, 255, 255));
         tituloLoginlb.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         tituloLoginlb.setLabelFor(tituloLoginlb);
-        tituloLoginlb.setText("MEDICAL MANAGMENT SYSTEM - LOGIN");
+        tituloLoginlb.setText("MEDICAL MANAGMENT SYSTEM");
         tituloLoginlb.setMaximumSize(new java.awt.Dimension(408, 35));
         tituloLoginlb.setPreferredSize(new java.awt.Dimension(48, 16));
         jToolBar_login.add(tituloLoginlb);
@@ -131,11 +132,8 @@ public class Login extends javax.swing.JFrame implements ActionListener{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToolBar_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToolBar_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +147,36 @@ public class Login extends javax.swing.JFrame implements ActionListener{
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarbtnActionPerformed
-       validarUsuario();
+
+        
+        try{
+            
+         Conexion conex= new Conexion();
+         String pass=String.valueOf(pass_jpass.getPassword());
+         String usuario=username_txt.getText();  
+         
+         String SQL;
+         SQL = "SELECT idUsuarios,nom_usuarios FROM usuarios WHERE USUARIOS='"+usuario+"' and passw='"+pass+"' ";
+         
+        
+         
+         conex.resultado=conex.sentencia.executeQuery(SQL);
+         if(conex.resultado.next()){
+             setVisible(false);
+             Home h=new Home();
+             //h.estadoConexion_lbl.setText("Bienvenido"+ conex.resultado.getString("nom_usuarios"));
+             h.setVisible(true);
+             
+         }else{
+             JOptionPane.showMessageDialog(null, "Acceso denegado! Usuario o contraseña incorrecto");
+         }
+
+            
+        } catch (HeadlessException | SQLException e) {
+            
+            JOptionPane.showMessageDialog(null," Error:  " + e.getMessage());
+        }   
+  
     }//GEN-LAST:event_entrarbtnActionPerformed
 
     private void username_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username_txtActionPerformed
@@ -157,64 +184,10 @@ public class Login extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_username_txtActionPerformed
 
     private void entrarbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarbtnMouseClicked
-        String usuario="admin";
-        String contrasenya="viu";
-         
-        String user=username_txt.getText();
-        String pass = new String(pass_jpass.getPassword());
-      
-         
-         if (user.equals(usuario) && pass.equals(contrasenya))  {
-             
-             Home h =new Home();
-             this.setVisible(false);
-             h.setVisible(true);  
-             dispose();
-            } 
-         else
-             {
-             
-             JOptionPane.showMessageDialog(this, "Nombre de usuario o contraseña incorrecto");
-             
-             }   
-                               
+
+                                                   
     }//GEN-LAST:event_entrarbtnMouseClicked
 
-    /**
-     * Método que permite validar el usuario
-     */
-    public void validarUsuario(){
-        
-        int resultado;
-        String pass=String.valueOf(pass_jpass.getPassword());
-        String usuario=username_txt.getText();
-        String SQL;
-        SQL = "SELECT * FROM USUARIOS WHERE nom_usuario='"+usuario+"' and passw='"+pass+"' ";
-        
-        try{
-         Statement st= con.createStatement();
-         ResultSet rs=st.executeQuery(SQL);
-         
-         if (rs.next()){
-             resultado=1;
-             if(resultado==1){
-                 Home h = new Home();
-                 h.setVisible(true);
-                 this.dispose();
-             }
-             
-         }else{
-             
-             JOptionPane.showMessageDialog(this, "Acceso denegado! Usuario incorrecto");
-         }
-            
-            
-        } catch (HeadlessException | SQLException e) {
-            
-            JOptionPane.showMessageDialog(null," Error:  " + e.getMessage());
-        }
-    }
-    
     
     
     
@@ -235,8 +208,12 @@ public class Login extends javax.swing.JFrame implements ActionListener{
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+          //</editor-fold>
+          //</editor-fold>
+          //</editor-fold>
+          //</editor-fold>
           //</editor-fold>
           //</editor-fold>
           //</editor-fold>
@@ -247,7 +224,7 @@ public class Login extends javax.swing.JFrame implements ActionListener{
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Login().setVisible(true);
+            new LoginView().setVisible(true);
         });
     }
 
@@ -261,12 +238,10 @@ public class Login extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables
 
-    /**
-     *
-     * @param e
-     */
     @Override
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
 }

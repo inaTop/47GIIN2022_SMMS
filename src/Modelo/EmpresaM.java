@@ -2,22 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package SMMS_controlador;
+package Modelo;
 
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
- * @author Ines Topalli
+ * @author InaRu
  */
-public class Empresa {
+public class EmpresaM {
+    
     private int idempresa;
     private String nom_empresa;
     private String descripcion; 
 
-    public Empresa() {
+    public EmpresaM() {
         
        JOptionPane.showMessageDialog(null,"Empresa creada con éxito");
         
@@ -31,7 +30,7 @@ public class Empresa {
      * @param idempresa identificador de la empresa
      * @param descripcion 
      */
-    public Empresa(int idempresa, String nom_empresa, String descripcion) {
+    public EmpresaM(int idempresa, String nom_empresa, String descripcion) {
         this.idempresa = idempresa;
         this.nom_empresa= nom_empresa;
         this.descripcion = descripcion;
@@ -44,7 +43,7 @@ public class Empresa {
      * @param nom_empresa Nombre de la empresa
      * @param descripcion 
      */
-    public Empresa(String nom_empresa, String descripcion) {
+    public EmpresaM(String nom_empresa, String descripcion) {
         this.nom_empresa= nom_empresa;
         this.descripcion = descripcion;
     }
@@ -100,5 +99,6 @@ public class Empresa {
     public void setDescr(String descripcion) {
         this.descripcion = descripcion;
     }
-
+    
+    
 }

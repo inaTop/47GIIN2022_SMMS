@@ -1,4 +1,4 @@
-package SMMS_modelo;
+package Modelo;
 /**
 *
 * Clase que implementa la Conexion a la base de datos
@@ -8,49 +8,58 @@ package SMMS_modelo;
 */
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author: Ines Topalli
  */
 public class Conexion {
-     static Connection conn=null;
-     String bd="mps";
-     String url="jdbc:mysql://localhost:3306/mps";
-     String user="root";
-     String pass="";
-     String driver="com.mysql.cj.jdbc.Driver";        
+    
+     Connection con;
+    // String driver="com.mysql.jdbc.Driver";        
    
     /**
      * Funci�n que permite conectar a la base de datos 
+     * @return con
      */
-    public void conector() {
-        try {
-            conn=DriverManager.getConnection(url,user,pass);
-            System.out.println("Conexion establecida");
-        } 
-        catch (SQLException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    public static Connection conectarBD() {
+         
+        Connection con = null;
+        String password = "";
+	String usuario = "root";
+	String url = "jdbc:mysql://localhost:3307/mps?user=" + usuario
+				+ "&password=" + password;
+		try {
+			con = DriverManager.getConnection(url);
+			if (con != null) {
+				System.out.println("Conectado a la base de datos");
+			}
+		} catch (SQLException e) {
+			System.out.println("No se pudo conectar a la base de datos");
+		}
+		return con;
+	}   
+    
+
+
 
     /**
      * Consulta la conexi�n a la base de datos
      * @return Devuelve la conexi�n a la base de datos
      */
     
-    public Connection getConexion(){
-        return Conexion.conn;
+    public Connection getConnection(){
+        return con;
     }
       
     /**
      * Aplica la conexi�n a la base de datos
      * @param conexion
      */
-    public void setConexion(Connection conexion){
-        Conexion.conn=conexion;
+    public void setConnection(Connection conexion){
+        con=conexion;
     }
     
    /*public ResultSet consultar(String sql) {

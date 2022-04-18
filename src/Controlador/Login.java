@@ -5,35 +5,39 @@
 * @version: v0.1 24/03/2022
 * @see <a href="https://www.universidadviu.com/"> VIU </a>
 */
-package SMMS_controlador;
+package Controlador;
 
-import SMMS_modelo.ConsultaM;
+import Modelo.UsuariosM;
+
+
+
 
 /**
  * Clase controlAutenticacion 
  * @author:Inés Topalli
  */
-public class AutenticacionControl {
+public class Login {
     private final String nom;
     private final String pass;
+
     
     /**
     * Constructor de la clase controlAutenticación
     * @param nom Nombre del usuario
     * @param pass Password del Usuario
     */
-    public AutenticacionControl(String nom, String pass){
+    public Login(String nom, String pass){
         this.nom=nom;
         this.pass=pass;
+    }
+
+    Login() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     /**
     * Función autenticar
     * @return Devuelve el resultado de la consulta sobre el nombre del usuario. Permite saber si el usuario es válido 
     */
-    public String autenticar(){
-        
-        ConsultaM consulta=new ConsultaM();
-        return consulta.select_nom_usuario(nom);
-    }
+
 }

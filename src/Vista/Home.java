@@ -2,7 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package SMMS_vista;
+package Vista;
+
+import java.awt.Container;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -10,11 +14,24 @@ package SMMS_vista;
  */
 public class Home extends javax.swing.JFrame {
 
+    private Container contenedor;
+    private JPanel panel;
+    
+    
+    
+    
     /**
      * Creates new form Home
      */
     public Home() {
         initComponents();
+        UsuariosView u = new UsuariosView();
+        JFrame jf= new JFrame();
+        jf.getContentPane().add(u);
+        
+        
+        
+        
     }
 
     /**
@@ -27,13 +44,15 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        estadoConexion_lbl = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        jM_Empresas = new javax.swing.JMenu();
+        jM_usuarios = new javax.swing.JMenu();
+        jM_Proyectos = new javax.swing.JMenu();
+        jM_tareas = new javax.swing.JMenu();
+        jM_clientes = new javax.swing.JMenu();
+        jM_fact = new javax.swing.JMenu();
+        jM_informes = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 255));
@@ -43,7 +62,11 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.CardLayout());
+
+        estadoConexion_lbl.setText("Estado Conexion");
+        jPanel1.add(estadoConexion_lbl, "card2");
+
         getContentPane().add(jPanel1, "card2");
 
         jMenuBar1.setBackground(new java.awt.Color(0, 153, 255));
@@ -51,23 +74,26 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1.setMaximumSize(new java.awt.Dimension(390, 32768));
         jMenuBar1.setOpaque(true);
 
-        jMenu1.setText("Usuarios");
-        jMenuBar1.add(jMenu1);
+        jM_Empresas.setText("Empresas");
+        jMenuBar1.add(jM_Empresas);
 
-        jMenu2.setText("Proyectos");
-        jMenuBar1.add(jMenu2);
+        jM_usuarios.setText("Usuarios");
+        jMenuBar1.add(jM_usuarios);
 
-        jMenu3.setText("Tareas");
-        jMenuBar1.add(jMenu3);
+        jM_Proyectos.setText("Proyectos");
+        jMenuBar1.add(jM_Proyectos);
 
-        jMenu6.setText("Clientes");
-        jMenuBar1.add(jMenu6);
+        jM_tareas.setText("Tareas");
+        jMenuBar1.add(jM_tareas);
 
-        jMenu4.setText("Facturación");
-        jMenuBar1.add(jMenu4);
+        jM_clientes.setText("Clientes");
+        jMenuBar1.add(jM_clientes);
 
-        jMenu5.setText("Informes ");
-        jMenuBar1.add(jMenu5);
+        jM_fact.setText("Facturación");
+        jMenuBar1.add(jM_fact);
+
+        jM_informes.setText("Informes ");
+        jMenuBar1.add(jM_informes);
 
         setJMenuBar(jMenuBar1);
 
@@ -108,12 +134,14 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
+    private javax.swing.JLabel estadoConexion_lbl;
+    private javax.swing.JMenu jM_Empresas;
+    private javax.swing.JMenu jM_Proyectos;
+    private javax.swing.JMenu jM_clientes;
+    private javax.swing.JMenu jM_fact;
+    private javax.swing.JMenu jM_informes;
+    private javax.swing.JMenu jM_tareas;
+    private javax.swing.JMenu jM_usuarios;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

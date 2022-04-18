@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package SMMS_vista;
+package Vista;
 
 /**
  *
@@ -250,9 +250,6 @@ public class EmpresaV extends javax.swing.JFrame {
                     .addComponent(jP_datosEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(39, Short.MAX_VALUE)))
         );
-
-        jP_listadoEmpresa.getAccessibleContext().setAccessibleName("Datos empresa");
-        jP_datosEmpresa.getAccessibleContext().setAccessibleName("Listado empresas");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

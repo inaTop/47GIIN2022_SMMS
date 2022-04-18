@@ -2,19 +2,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package SMMS_vista;
+package Vista;
+
+import java.util.List;
+import Modelo.UsuariosM;
 
 /**
  *
  * @author InaRu
  */
-public class Usuarios extends javax.swing.JPanel {
+public class UsuariosView extends javax.swing.JPanel {
 
     /**
      * Creates new form NewJPanel
      */
-    public Usuarios() {
+    public UsuariosView() {
         initComponents();
+        
+    }
+    
+    public void verUsuario ( UsuariosM usuario){
+        System.out.println("Datos del usuario:"+usuario);
+    }
+    
+    
+    
+    
+    public void verUsuarios(List<UsuariosM> usuarios){
+        for (UsuariosM usuario:usuarios){
+            System.out.println ("Datos del usuario:"+ usuario);
+        }
     }
 
     /**
