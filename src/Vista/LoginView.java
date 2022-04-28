@@ -5,7 +5,6 @@
 package Vista;
 
 import Modelo.Conexion;
-import static Modelo.Conexion.conectarBD;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
