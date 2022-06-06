@@ -37,7 +37,7 @@ public class ProyectosView extends javax.swing.JPanel {
         jScrollP_Proy = new javax.swing.JScrollPane();
         proyectos_jTbl = new javax.swing.JTable();
 
-        opcionesProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, null, null, null, null, new java.awt.Color(0, 102, 204)));
+        opcionesProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
         nuevoProy_btn.setBackground(new java.awt.Color(0, 153, 255));
         nuevoProy_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -92,7 +92,7 @@ public class ProyectosView extends javax.swing.JPanel {
                 .addContainerGap(198, Short.MAX_VALUE))
         );
 
-        listaProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, null, null, null, null, new java.awt.Color(0, 102, 204)));
+        listaProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista usuarios:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
         buscarProy_btn.setBackground(new java.awt.Color(0, 153, 255));
         buscarProy_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,13 +100,13 @@ public class ProyectosView extends javax.swing.JPanel {
 
         proyectos_jTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Estado", "Nombre", "Tipo", "Cliente", "Fecha inicio", "Fecha entrega", "MW", "Descripción"
+                "Código", "Estado", "Nombre", "Tipo", "Cliente", "Fecha inicio", "Fecha entrega", "Descripción"
             }
         ));
         jScrollP_Proy.setViewportView(proyectos_jTbl);
