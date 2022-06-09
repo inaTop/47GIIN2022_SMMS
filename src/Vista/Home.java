@@ -25,6 +25,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        this.setLocationRelativeTo(null);
         UsuariosView u = new UsuariosView();
         JFrame jf= new JFrame();
         jf.getContentPane().add(u);
@@ -43,8 +44,11 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        estadoConexion_lbl = new javax.swing.JLabel();
+        clientesJBTN = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_Empresas = new javax.swing.JMenu();
         jM_usuarios = new javax.swing.JMenu();
@@ -54,6 +58,8 @@ public class Home extends javax.swing.JFrame {
         jM_fact = new javax.swing.JMenu();
         jM_informes = new javax.swing.JMenu();
 
+        jMenuItem1.setText("jMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 255));
         setMinimumSize(new java.awt.Dimension(38, 38));
@@ -62,19 +68,51 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.CardLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        estadoConexion_lbl.setText("Estado Conexion");
-        jPanel1.add(estadoConexion_lbl, "card2");
+        clientesJBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/admin_person_user_man_2839.png"))); // NOI18N
+        clientesJBTN.setText("CLIENTES");
+        clientesJBTN.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        clientesJBTN.setBorderPainted(false);
+        clientesJBTN.setContentAreaFilled(false);
+        clientesJBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientesJBTNActionPerformed(evt);
+            }
+        });
+        jPanel1.add(clientesJBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 230, 240));
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 102, 204));
+        jTextField1.setText("Bienvenido a la herramienta  ");
+        jTextField1.setBorder(null);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 340, 70));
+
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(51, 153, 255));
+        jTextField2.setText("MEDICAL PROJECT MANAGEMENT");
+        jTextField2.setBorder(null);
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 420, 50));
 
         getContentPane().add(jPanel1, "card2");
 
         jMenuBar1.setBackground(new java.awt.Color(0, 153, 255));
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setMaximumSize(new java.awt.Dimension(390, 32768));
-        jMenuBar1.setOpaque(true);
 
         jM_Empresas.setText("Empresas");
+        jM_Empresas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jM_EmpresasMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jM_Empresas);
 
         jM_usuarios.setText("Usuarios");
@@ -99,6 +137,20 @@ public class Home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void clientesJBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesJBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clientesJBTNActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jM_EmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jM_EmpresasMouseClicked
+        EmpresaV em=new EmpresaV();
+        em.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jM_EmpresasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -134,7 +186,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel estadoConexion_lbl;
+    private javax.swing.JButton clientesJBTN;
     private javax.swing.JMenu jM_Empresas;
     private javax.swing.JMenu jM_Proyectos;
     private javax.swing.JMenu jM_clientes;
@@ -143,6 +195,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu jM_tareas;
     private javax.swing.JMenu jM_usuarios;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
