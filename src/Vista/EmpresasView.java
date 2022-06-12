@@ -33,15 +33,19 @@ public class EmpresasView extends javax.swing.JPanel {
         nomEmpresalbl = new javax.swing.JLabel();
         limpiarbtn = new javax.swing.JButton();
         agregarEmpresabtn3 = new javax.swing.JButton();
-        jP_datosEmpresa = new javax.swing.JPanel();
-        jTxt_buscarEmpresa = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableEmpresas = new javax.swing.JTable();
-        buscarEmpresabtn = new javax.swing.JButton();
-        eliminarEmprbtn = new javax.swing.JButton();
+        jP_datosEmpresa1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableEmpresas1 = new javax.swing.JTable();
+        eliminarEmpresabtn = new javax.swing.JButton();
+        modEmpresabtn = new javax.swing.JButton();
 
-        setLayout(new java.awt.CardLayout());
+        setBackground(java.awt.SystemColor.controlHighlight);
+        setMaximumSize(new java.awt.Dimension(750, 550));
+        setMinimumSize(new java.awt.Dimension(750, 550));
+        setPreferredSize(new java.awt.Dimension(750, 550));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jP_listadoEmpresa.setBackground(java.awt.SystemColor.controlHighlight);
         jP_listadoEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 153, 255)), "Datos empresa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 153, 255))); // NOI18N
         jP_listadoEmpresa.setForeground(new java.awt.Color(0, 153, 255));
 
@@ -59,7 +63,7 @@ public class EmpresasView extends javax.swing.JPanel {
         limpiarbtn.setBackground(new java.awt.Color(0, 153, 255));
         limpiarbtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         limpiarbtn.setForeground(new java.awt.Color(255, 255, 255));
-        limpiarbtn.setText("Editar");
+        limpiarbtn.setText("Limpiar");
         limpiarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 limpiarbtnActionPerformed(evt);
@@ -76,15 +80,52 @@ public class EmpresasView extends javax.swing.JPanel {
             }
         });
 
-        jP_datosEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Listado empresas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 153, 255))); // NOI18N
+        javax.swing.GroupLayout jP_listadoEmpresaLayout = new javax.swing.GroupLayout(jP_listadoEmpresa);
+        jP_listadoEmpresa.setLayout(jP_listadoEmpresaLayout);
+        jP_listadoEmpresaLayout.setHorizontalGroup(
+            jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nomEmpresalbl)
+                    .addComponent(nomEmpresalbl1))
+                .addGap(18, 18, 18)
+                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nom_empres_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                    .addComponent(desc_jtxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(agregarEmpresabtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(limpiarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
+        );
+        jP_listadoEmpresaLayout.setVerticalGroup(
+            jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(nomEmpresalbl))
+                    .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nom_empres_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(agregarEmpresabtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nomEmpresalbl1)
+                        .addComponent(limpiarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(desc_jtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
 
-        jTxt_buscarEmpresa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_buscarEmpresaActionPerformed(evt);
-            }
-        });
+        add(jP_listadoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 3, 720, 140));
 
-        jTableEmpresas.setModel(new javax.swing.table.DefaultTableModel(
+        jP_datosEmpresa1.setBackground(java.awt.SystemColor.controlHighlight);
+        jP_datosEmpresa1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Listado empresas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 153, 255))); // NOI18N
+
+        jTableEmpresas1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -100,103 +141,55 @@ public class EmpresasView extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTableEmpresas);
+        jScrollPane2.setViewportView(jTableEmpresas1);
 
-        buscarEmpresabtn.setBackground(new java.awt.Color(0, 153, 255));
-        buscarEmpresabtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buscarEmpresabtn.setForeground(new java.awt.Color(255, 255, 255));
-        buscarEmpresabtn.setText("Buscar");
-        buscarEmpresabtn.addActionListener(new java.awt.event.ActionListener() {
+        eliminarEmpresabtn.setBackground(new java.awt.Color(0, 153, 255));
+        eliminarEmpresabtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        eliminarEmpresabtn.setForeground(new java.awt.Color(255, 255, 255));
+        eliminarEmpresabtn.setText("Eliminar");
+        eliminarEmpresabtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarEmpresabtnActionPerformed(evt);
+                eliminarEmpresabtnActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jP_datosEmpresaLayout = new javax.swing.GroupLayout(jP_datosEmpresa);
-        jP_datosEmpresa.setLayout(jP_datosEmpresaLayout);
-        jP_datosEmpresaLayout.setHorizontalGroup(
-            jP_datosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_datosEmpresaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jP_datosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jP_datosEmpresaLayout.createSequentialGroup()
-                        .addComponent(jTxt_buscarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buscarEmpresabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19))
-        );
-        jP_datosEmpresaLayout.setVerticalGroup(
-            jP_datosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_datosEmpresaLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jP_datosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxt_buscarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarEmpresabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-
-        eliminarEmprbtn.setBackground(new java.awt.Color(0, 153, 255));
-        eliminarEmprbtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        eliminarEmprbtn.setForeground(new java.awt.Color(255, 255, 255));
-        eliminarEmprbtn.setText("Eliminar");
-        eliminarEmprbtn.addActionListener(new java.awt.event.ActionListener() {
+        modEmpresabtn.setBackground(new java.awt.Color(0, 153, 255));
+        modEmpresabtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        modEmpresabtn.setForeground(new java.awt.Color(255, 255, 255));
+        modEmpresabtn.setText("Modificar");
+        modEmpresabtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarEmprbtnActionPerformed(evt);
+                modEmpresabtnActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jP_listadoEmpresaLayout = new javax.swing.GroupLayout(jP_listadoEmpresa);
-        jP_listadoEmpresa.setLayout(jP_listadoEmpresaLayout);
-        jP_listadoEmpresaLayout.setHorizontalGroup(
-            jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jP_datosEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jP_datosEmpresa1Layout = new javax.swing.GroupLayout(jP_datosEmpresa1);
+        jP_datosEmpresa1.setLayout(jP_datosEmpresa1Layout);
+        jP_datosEmpresa1Layout.setHorizontalGroup(
+            jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_datosEmpresa1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(modEmpresabtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminarEmpresabtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_listadoEmpresaLayout.createSequentialGroup()
-                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(eliminarEmprbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomEmpresalbl)
-                            .addComponent(nomEmpresalbl1))
-                        .addGap(30, 30, 30)
-                        .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nom_empres_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(desc_jtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(limpiarbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(agregarEmpresabtn3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(28, 28, 28))
         );
-        jP_listadoEmpresaLayout.setVerticalGroup(
-            jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nom_empres_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomEmpresalbl)
-                    .addComponent(agregarEmpresabtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nomEmpresalbl1)
-                    .addComponent(desc_jtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(limpiarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(eliminarEmprbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addComponent(jP_datosEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+        jP_datosEmpresa1Layout.setVerticalGroup(
+            jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_datosEmpresa1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jP_datosEmpresa1Layout.createSequentialGroup()
+                        .addComponent(modEmpresabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(eliminarEmpresabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        add(jP_listadoEmpresa, "card2");
+        add(jP_datosEmpresa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 154, 720, 370));
     }// </editor-fold>//GEN-END:initComponents
 
     private void limpiarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarbtnActionPerformed
@@ -207,30 +200,30 @@ public class EmpresasView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_agregarEmpresabtn3ActionPerformed
 
-    private void jTxt_buscarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_buscarEmpresaActionPerformed
+    private void eliminarEmpresabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpresabtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxt_buscarEmpresaActionPerformed
+    }//GEN-LAST:event_eliminarEmpresabtnActionPerformed
 
-    private void buscarEmpresabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEmpresabtnActionPerformed
+    private void modEmpresabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modEmpresabtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscarEmpresabtnActionPerformed
-
-    private void eliminarEmprbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmprbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eliminarEmprbtnActionPerformed
+    }//GEN-LAST:event_modEmpresabtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarEmpresabtn3;
     private javax.swing.JButton buscarEmpresabtn;
     private javax.swing.JTextField desc_jtxt;
-    private javax.swing.JButton eliminarEmprbtn;
+    private javax.swing.JButton eliminarEmpresabtn;
     private javax.swing.JPanel jP_datosEmpresa;
+    private javax.swing.JPanel jP_datosEmpresa1;
     private javax.swing.JPanel jP_listadoEmpresa;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableEmpresas;
+    private javax.swing.JTable jTableEmpresas1;
     private javax.swing.JTextField jTxt_buscarEmpresa;
     private javax.swing.JButton limpiarbtn;
+    private javax.swing.JButton modEmpresabtn;
     private javax.swing.JLabel nomEmpresalbl;
     private javax.swing.JLabel nomEmpresalbl1;
     private javax.swing.JTextField nom_empres_txt;
