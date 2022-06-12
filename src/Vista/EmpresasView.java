@@ -4,17 +4,28 @@
  */
 package Vista;
 
+import Controlador.Empresa;
+import DAO.EmpresasCRUD;
+import Modelo.EmpresaM;
+import Modelo.Conexion;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author InaRu
  */
 public class EmpresasView extends javax.swing.JPanel {
 
+private String accion = "guardar";
     /**
      * Creates new form Empresas
      */
     public EmpresasView() {
         initComponents();
+         mostrar("");
+         //inhabilitar();
     }
 
     /**
@@ -35,9 +46,12 @@ public class EmpresasView extends javax.swing.JPanel {
         agregarEmpresabtn3 = new javax.swing.JButton();
         jP_datosEmpresa1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTableEmpresas1 = new javax.swing.JTable();
+        jTablaEmpresas = new javax.swing.JTable();
         eliminarEmpresabtn = new javax.swing.JButton();
         modEmpresabtn = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        txt_buscarEm = new javax.swing.JTextField();
+        salirbtn = new javax.swing.JButton();
 
         setBackground(java.awt.SystemColor.controlHighlight);
         setMaximumSize(new java.awt.Dimension(750, 550));
@@ -46,21 +60,21 @@ public class EmpresasView extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jP_listadoEmpresa.setBackground(java.awt.SystemColor.controlHighlight);
-        jP_listadoEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 153, 255)), "Datos empresa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 153, 255))); // NOI18N
-        jP_listadoEmpresa.setForeground(new java.awt.Color(0, 153, 255));
+        jP_listadoEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 153, 255)), "Datos empresa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), javax.swing.UIManager.getDefaults().getColor("Actions.Blue"))); // NOI18N
+        jP_listadoEmpresa.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
 
         desc_jtxt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        nomEmpresalbl1.setForeground(new java.awt.Color(0, 153, 255));
+        nomEmpresalbl1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         nomEmpresalbl1.setText("Descripción :");
 
         nom_empres_txt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         nom_empres_txt.setOpaque(true);
 
-        nomEmpresalbl.setForeground(new java.awt.Color(0, 153, 255));
+        nomEmpresalbl.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         nomEmpresalbl.setText("Nombre empresa:");
 
-        limpiarbtn.setBackground(new java.awt.Color(0, 153, 255));
+        limpiarbtn.setBackground(new java.awt.Color(0, 153, 204));
         limpiarbtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         limpiarbtn.setForeground(new java.awt.Color(255, 255, 255));
         limpiarbtn.setText("Limpiar");
@@ -70,7 +84,7 @@ public class EmpresasView extends javax.swing.JPanel {
             }
         });
 
-        agregarEmpresabtn3.setBackground(new java.awt.Color(0, 153, 255));
+        agregarEmpresabtn3.setBackground(new java.awt.Color(0, 153, 204));
         agregarEmpresabtn3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         agregarEmpresabtn3.setForeground(new java.awt.Color(255, 255, 255));
         agregarEmpresabtn3.setText("Agregar");
@@ -123,27 +137,29 @@ public class EmpresasView extends javax.swing.JPanel {
         add(jP_listadoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 3, 720, 140));
 
         jP_datosEmpresa1.setBackground(java.awt.SystemColor.controlHighlight);
-        jP_datosEmpresa1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Listado empresas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 153, 255))); // NOI18N
+        jP_datosEmpresa1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Listado empresas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), javax.swing.UIManager.getDefaults().getColor("Actions.Blue"))); // NOI18N
+        jP_datosEmpresa1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
 
-        jTableEmpresas1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaEmpresas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Id Empresa", "Nombre", "Descripción"
+                "Codigo", "Nombre", "Descripción"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        ));
+        jTablaEmpresas.setColumnSelectionAllowed(true);
+        jTablaEmpresas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTablaEmpresasKeyPressed(evt);
             }
         });
-        jScrollPane2.setViewportView(jTableEmpresas1);
+        jScrollPane2.setViewportView(jTablaEmpresas);
+        jTablaEmpresas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        eliminarEmpresabtn.setBackground(new java.awt.Color(0, 153, 255));
+        eliminarEmpresabtn.setBackground(new java.awt.Color(0, 153, 204));
         eliminarEmpresabtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         eliminarEmpresabtn.setForeground(new java.awt.Color(255, 255, 255));
         eliminarEmpresabtn.setText("Eliminar");
@@ -153,7 +169,7 @@ public class EmpresasView extends javax.swing.JPanel {
             }
         });
 
-        modEmpresabtn.setBackground(new java.awt.Color(0, 153, 255));
+        modEmpresabtn.setBackground(new java.awt.Color(0, 153, 204));
         modEmpresabtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         modEmpresabtn.setForeground(new java.awt.Color(255, 255, 255));
         modEmpresabtn.setText("Modificar");
@@ -163,29 +179,64 @@ public class EmpresasView extends javax.swing.JPanel {
             }
         });
 
+        btnBuscar.setBackground(new java.awt.Color(0, 153, 204));
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setText("Buscar");
+        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseClicked(evt);
+            }
+        });
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        salirbtn.setBackground(new java.awt.Color(0, 153, 204));
+        salirbtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        salirbtn.setForeground(new java.awt.Color(255, 255, 255));
+        salirbtn.setText("Salir");
+        salirbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jP_datosEmpresa1Layout = new javax.swing.GroupLayout(jP_datosEmpresa1);
         jP_datosEmpresa1.setLayout(jP_datosEmpresa1Layout);
         jP_datosEmpresa1Layout.setHorizontalGroup(
             jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_datosEmpresa1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+                    .addComponent(txt_buscarEm))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(eliminarEmpresabtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(modEmpresabtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(eliminarEmpresabtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salirbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jP_datosEmpresa1Layout.setVerticalGroup(
             jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_datosEmpresa1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(txt_buscarEm))
+                .addGap(18, 18, 18)
+                .addGroup(jP_datosEmpresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jP_datosEmpresa1Layout.createSequentialGroup()
                         .addComponent(modEmpresabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(eliminarEmpresabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(eliminarEmpresabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(salirbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -193,11 +244,45 @@ public class EmpresasView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void limpiarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarbtnActionPerformed
-        // TODO add your handling code here:
+       
+        nom_empres_txt.setText("");
+        desc_jtxt.setText("");
     }//GEN-LAST:event_limpiarbtnActionPerformed
 
     private void agregarEmpresabtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarEmpresabtn3ActionPerformed
-        // TODO add your handling code here:
+        
+         if (nom_empres_txt.getText().length() == 0) {
+            JOptionPane.showConfirmDialog(null, "Debes ingresar un nombre de empresa");
+            nom_empres_txt.requestFocus();
+            return;
+        }
+        
+        EmpresaM edatos=new EmpresaM();
+        EmpresasCRUD em=new EmpresasCRUD();
+        
+        edatos.setNom_empresa(nom_empres_txt.getText());
+        edatos.setDescr(desc_jtxt.getText());
+        
+        if(accion.equals("guardar")){
+            if(em.anyadirEmpresa(edatos)){
+                JOptionPane.showMessageDialog(null, "La empresa ha sido agregada satisfactoriamente");
+               
+            }
+            inhabilitar();         
+        }
+        else if ( accion.equals("modificar")){
+            edatos.setNom_empresa(nom_empres_txt.getText());
+            edatos.setDescr(desc_jtxt.getText());
+            
+            if(em.modificarEmpresa(edatos)){
+                 JOptionPane.showMessageDialog(null, "La empresa ha sido modificada satisfactoriamente");
+                 mostrar("");
+                 inhabilitar();
+            }
+            
+        }
+        
+        
     }//GEN-LAST:event_agregarEmpresabtn3ActionPerformed
 
     private void eliminarEmpresabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpresabtnActionPerformed
@@ -208,9 +293,26 @@ public class EmpresasView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_modEmpresabtnActionPerformed
 
+    private void jTablaEmpresasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablaEmpresasKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTablaEmpresasKeyPressed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        mostrar(txt_buscarEm.getText());
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+         mostrar(txt_buscarEm.getText());
+    }//GEN-LAST:event_btnBuscarMouseClicked
+
+    private void salirbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirbtnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salirbtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarEmpresabtn3;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton buscarEmpresabtn;
     private javax.swing.JTextField desc_jtxt;
     private javax.swing.JButton eliminarEmpresabtn;
@@ -219,13 +321,68 @@ public class EmpresasView extends javax.swing.JPanel {
     private javax.swing.JPanel jP_listadoEmpresa;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTablaEmpresas;
     private javax.swing.JTable jTableEmpresas;
-    private javax.swing.JTable jTableEmpresas1;
     private javax.swing.JTextField jTxt_buscarEmpresa;
     private javax.swing.JButton limpiarbtn;
     private javax.swing.JButton modEmpresabtn;
     private javax.swing.JLabel nomEmpresalbl;
     private javax.swing.JLabel nomEmpresalbl1;
     private javax.swing.JTextField nom_empres_txt;
+    private javax.swing.JButton salirbtn;
+    private javax.swing.JTextField txt_buscarEm;
     // End of variables declaration//GEN-END:variables
+
+
+void habilitar() {
+      
+        nom_empres_txt.setEnabled(true);
+        desc_jtxt.setEnabled(true);
+      
+        limpiarbtn.setEnabled(true);
+        agregarEmpresabtn3.setEnabled(true);
+        eliminarEmpresabtn.setEnabled(true);
+        modEmpresabtn.setEnabled(true);
+        
+        nom_empres_txt.setText("");
+        desc_jtxt.setText("");
+}
+
+void inhabilitar() {
+     
+    
+        nom_empres_txt.setEnabled(false);
+        desc_jtxt.setEnabled(false);
+      
+        limpiarbtn.setEnabled(false);
+        agregarEmpresabtn3.setEnabled(false);
+        eliminarEmpresabtn.setEnabled(false);
+        modEmpresabtn.setEnabled(false);
+        
+        nom_empres_txt.setText("");
+        desc_jtxt.setText("");
+        
+        
+        
+
+    }
+
+void mostrar(String buscar) {
+        try {
+            DefaultTableModel modelo;
+            EmpresasCRUD em = new EmpresasCRUD();
+            modelo= em.mostrar(buscar);
+
+            jTablaEmpresas.setModel(modelo);
+
+        } catch (Exception e) {
+            Component rootPane = null;
+            JOptionPane.showConfirmDialog(rootPane, e);
+        }
+    }
+
+
+
+
+
 }
