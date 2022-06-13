@@ -24,7 +24,8 @@ private String accion = "guardar";
      */
     public EmpresasView() {
         initComponents();
-         mostrar("");
+        mostrar("");
+        codigo_txt.setEnabled(false);
          //inhabilitar();
     }
 
@@ -40,10 +41,12 @@ private String accion = "guardar";
         jP_listadoEmpresa = new javax.swing.JPanel();
         desc_jtxt = new javax.swing.JTextField();
         nomEmpresalbl1 = new javax.swing.JLabel();
-        nom_empres_txt = new javax.swing.JTextField();
+        codigo_txt = new javax.swing.JTextField();
         nomEmpresalbl = new javax.swing.JLabel();
         limpiarbtn = new javax.swing.JButton();
         agregarEmpresabtn3 = new javax.swing.JButton();
+        codigoE_lbl = new javax.swing.JLabel();
+        nom_empres_txt = new javax.swing.JTextField();
         jP_datosEmpresa1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablaEmpresas = new javax.swing.JTable();
@@ -64,12 +67,13 @@ private String accion = "guardar";
         jP_listadoEmpresa.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
 
         desc_jtxt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        desc_jtxt.setMaximumSize(new java.awt.Dimension(64, 22));
 
         nomEmpresalbl1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         nomEmpresalbl1.setText("Descripción :");
 
-        nom_empres_txt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        nom_empres_txt.setOpaque(true);
+        codigo_txt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        codigo_txt.setOpaque(true);
 
         nomEmpresalbl.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         nomEmpresalbl.setText("Nombre empresa:");
@@ -94,20 +98,33 @@ private String accion = "guardar";
             }
         });
 
+        codigoE_lbl.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        codigoE_lbl.setText("Código empresa:");
+
+        nom_empres_txt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        nom_empres_txt.setOpaque(true);
+
         javax.swing.GroupLayout jP_listadoEmpresaLayout = new javax.swing.GroupLayout(jP_listadoEmpresa);
         jP_listadoEmpresa.setLayout(jP_listadoEmpresaLayout);
         jP_listadoEmpresaLayout.setHorizontalGroup(
             jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nomEmpresalbl)
-                    .addComponent(nomEmpresalbl1))
-                .addGap(18, 18, 18)
-                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nom_empres_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
-                    .addComponent(desc_jtxt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                    .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                        .addComponent(codigoE_lbl)
+                        .addGap(24, 24, 24)
+                        .addComponent(codigo_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                        .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomEmpresalbl)
+                            .addComponent(nomEmpresalbl1))
+                        .addGap(18, 18, 18)
+                        .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(desc_jtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nom_empres_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(agregarEmpresabtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(limpiarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -116,22 +133,31 @@ private String accion = "guardar";
         jP_listadoEmpresaLayout.setVerticalGroup(
             jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(agregarEmpresabtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codigoE_lbl)
+                    .addComponent(codigo_txt))
                 .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(nomEmpresalbl))
+                        .addGap(18, 18, 18)
+                        .addComponent(limpiarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nom_empres_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(agregarEmpresabtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(nomEmpresalbl1)
-                        .addComponent(limpiarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(desc_jtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomEmpresalbl)
+                            .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(nom_empres_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jP_listadoEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addComponent(desc_jtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19))
+                            .addGroup(jP_listadoEmpresaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nomEmpresalbl1)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
 
         add(jP_listadoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 3, 720, 140));
@@ -151,6 +177,11 @@ private String accion = "guardar";
             }
         ));
         jTablaEmpresas.setColumnSelectionAllowed(true);
+        jTablaEmpresas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablaEmpresasMouseClicked(evt);
+            }
+        });
         jTablaEmpresas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTablaEmpresasKeyPressed(evt);
@@ -244,13 +275,17 @@ private String accion = "guardar";
     }// </editor-fold>//GEN-END:initComponents
 
     private void limpiarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarbtnActionPerformed
-       
+        
+        habilitar();
         nom_empres_txt.setText("");
         desc_jtxt.setText("");
+        codigo_txt.setText("");
     }//GEN-LAST:event_limpiarbtnActionPerformed
 
     private void agregarEmpresabtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarEmpresabtn3ActionPerformed
-        
+         codigo_txt.setEnabled(false);
+         accion="guardar"; 
+         
          if (nom_empres_txt.getText().length() == 0) {
             JOptionPane.showConfirmDialog(null, "Debes ingresar un nombre de empresa");
             nom_empres_txt.requestFocus();
@@ -268,29 +303,61 @@ private String accion = "guardar";
                 JOptionPane.showMessageDialog(null, "La empresa ha sido agregada satisfactoriamente");
                
             }
-            inhabilitar();         
-        }
-        else if ( accion.equals("modificar")){
-            edatos.setNom_empresa(nom_empres_txt.getText());
-            edatos.setDescr(desc_jtxt.getText());
-            
-            if(em.modificarEmpresa(edatos)){
-                 JOptionPane.showMessageDialog(null, "La empresa ha sido modificada satisfactoriamente");
-                 mostrar("");
-                 inhabilitar();
-            }
-            
+                     
         }
         
         
     }//GEN-LAST:event_agregarEmpresabtn3ActionPerformed
 
     private void eliminarEmpresabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpresabtnActionPerformed
-        // TODO add your handling code here:
+         
+        codigo_txt.setEnabled(false);    
+        int fila = jTablaEmpresas.getSelectedRow();
+        if (fila < 0) {
+            JOptionPane.showMessageDialog(null,"Usuario no Seleccionado");
+        } else {
+            if (!codigo_txt.getText().equals("")) {
+            int confirmacion = JOptionPane.showConfirmDialog(null, 
+                "Estás seguro de Eliminar a la empresa?","Confirmar",2);
+            
+            if (confirmacion==0) {
+                EmpresasCRUD e = new EmpresasCRUD();
+                EmpresaM em= new EmpresaM();
+                
+                em.setID_empresa(Integer.parseInt(codigo_txt.getText()));
+                e.eliminarEmpresa(em);
+                mostrar("");
+                
+                
+            } 
+        }
     }//GEN-LAST:event_eliminarEmpresabtnActionPerformed
-
+    }
     private void modEmpresabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modEmpresabtnActionPerformed
-        // TODO add your handling code here:
+        accion="Modificar"; 
+        codigo_txt.setEnabled(false); 
+         if (nom_empres_txt.getText().length() == 0) {
+            JOptionPane.showConfirmDialog(null, "Debes ingresar un nombre de empresa");
+            nom_empres_txt.requestFocus();
+            return;
+        }
+        
+        EmpresaM edatos=new EmpresaM();
+        EmpresasCRUD em=new EmpresasCRUD();
+        
+        edatos.setNom_empresa(nom_empres_txt.getText());
+        edatos.setDescr(desc_jtxt.getText());
+        
+        if ( accion.equals("Modificar")){
+            edatos.setID_empresa(Integer.parseInt(codigo_txt.getText()));
+            
+            if(em.modificarEmpresa(edatos)){
+                 JOptionPane.showMessageDialog(null, "La empresa ha sido modificada satisfactoriamente");
+                 mostrar("");
+                 
+            }
+            
+        }
     }//GEN-LAST:event_modEmpresabtnActionPerformed
 
     private void jTablaEmpresasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablaEmpresasKeyPressed
@@ -309,21 +376,28 @@ private String accion = "guardar";
         System.exit(0);
     }//GEN-LAST:event_salirbtnActionPerformed
 
+    private void jTablaEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablaEmpresasMouseClicked
+        codigo_txt.setEnabled(false);
+        accion="Modificar";
+        int fila = jTablaEmpresas.rowAtPoint(evt.getPoint());
+        
+        codigo_txt.setText(jTablaEmpresas.getValueAt(fila, 0).toString());
+        nom_empres_txt.setText(jTablaEmpresas.getValueAt(fila, 1).toString());
+        desc_jtxt.setText(jTablaEmpresas.getValueAt(fila, 2).toString());
+    }//GEN-LAST:event_jTablaEmpresasMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarEmpresabtn3;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton buscarEmpresabtn;
+    private javax.swing.JLabel codigoE_lbl;
+    private javax.swing.JTextField codigo_txt;
     private javax.swing.JTextField desc_jtxt;
     private javax.swing.JButton eliminarEmpresabtn;
-    private javax.swing.JPanel jP_datosEmpresa;
     private javax.swing.JPanel jP_datosEmpresa1;
     private javax.swing.JPanel jP_listadoEmpresa;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTablaEmpresas;
-    private javax.swing.JTable jTableEmpresas;
-    private javax.swing.JTextField jTxt_buscarEmpresa;
     private javax.swing.JButton limpiarbtn;
     private javax.swing.JButton modEmpresabtn;
     private javax.swing.JLabel nomEmpresalbl;
@@ -338,6 +412,7 @@ void habilitar() {
       
         nom_empres_txt.setEnabled(true);
         desc_jtxt.setEnabled(true);
+        codigo_txt.setEnabled(false);
       
         limpiarbtn.setEnabled(true);
         agregarEmpresabtn3.setEnabled(true);
@@ -359,8 +434,9 @@ void inhabilitar() {
         eliminarEmpresabtn.setEnabled(false);
         modEmpresabtn.setEnabled(false);
         
-        nom_empres_txt.setText("");
+        codigo_txt.setText("");
         desc_jtxt.setText("");
+        nom_empres_txt.setText("");
         
         
         

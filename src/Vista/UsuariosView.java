@@ -65,6 +65,12 @@ public class UsuariosView extends javax.swing.JPanel {
         jScrollP_Users = new javax.swing.JScrollPane();
         usuario_jTbl = new javax.swing.JTable();
 
+        setBackground(java.awt.SystemColor.controlHighlight);
+        setMaximumSize(new java.awt.Dimension(750, 550));
+        setMinimumSize(new java.awt.Dimension(750, 550));
+        setPreferredSize(new java.awt.Dimension(750, 550));
+
+        datosUsuario_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         datosUsuario_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
         nomUsuario_txt.addActionListener(new java.awt.event.ActionListener() {
@@ -90,14 +96,14 @@ public class UsuariosView extends javax.swing.JPanel {
         datosUsuario_jpnlLayout.setHorizontalGroup(
             datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datosUsuario_jpnlLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nomUser_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rol_lbl)
                     .addComponent(emailUser_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(empresaUser_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passUser_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rol_lbl))
-                .addGap(45, 45, 45)
+                    .addComponent(passUser_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(emailsuario_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
@@ -105,7 +111,7 @@ public class UsuariosView extends javax.swing.JPanel {
                         .addComponent(passUsuario_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(nomUsuario_txt))
                     .addComponent(roles_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         datosUsuario_jpnlLayout.setVerticalGroup(
             datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,12 +136,13 @@ public class UsuariosView extends javax.swing.JPanel {
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passUsuario_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passUser_lbl))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        opcionesUser_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         opcionesUser_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
-        crearUser_btn.setBackground(new java.awt.Color(0, 153, 255));
+        crearUser_btn.setBackground(new java.awt.Color(0, 153, 204));
         crearUser_btn.setForeground(new java.awt.Color(255, 255, 255));
         crearUser_btn.setText("Crear");
         crearUser_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -144,15 +151,15 @@ public class UsuariosView extends javax.swing.JPanel {
             }
         });
 
-        editUser_btn.setBackground(new java.awt.Color(0, 153, 255));
+        editUser_btn.setBackground(new java.awt.Color(0, 153, 204));
         editUser_btn.setForeground(new java.awt.Color(255, 255, 255));
         editUser_btn.setText("Editar");
 
-        eliminarUser_btn.setBackground(new java.awt.Color(0, 153, 255));
+        eliminarUser_btn.setBackground(new java.awt.Color(0, 153, 204));
         eliminarUser_btn.setForeground(new java.awt.Color(255, 255, 255));
         eliminarUser_btn.setText("Eliminar");
 
-        guardarUser_btn.setBackground(new java.awt.Color(0, 153, 255));
+        guardarUser_btn.setBackground(new java.awt.Color(0, 153, 204));
         guardarUser_btn.setForeground(new java.awt.Color(255, 255, 255));
         guardarUser_btn.setText("Guardar");
         guardarUser_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -188,9 +195,10 @@ public class UsuariosView extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        listaUser_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         listaUser_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista usuarios:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
-        buscarUser_btn.setBackground(new java.awt.Color(0, 153, 255));
+        buscarUser_btn.setBackground(new java.awt.Color(0, 153, 204));
         buscarUser_btn.setForeground(new java.awt.Color(255, 255, 255));
         buscarUser_btn.setText("Buscar");
 
@@ -216,10 +224,10 @@ public class UsuariosView extends javax.swing.JPanel {
                 .addGroup(listaUser_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollP_Users)
                     .addGroup(listaUser_jpnlLayout.createSequentialGroup()
-                        .addComponent(buscarUser_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buscarUser_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12))
+                        .addComponent(buscarUser_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(buscarUser_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14))
         );
         listaUser_jpnlLayout.setVerticalGroup(
             listaUser_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +237,7 @@ public class UsuariosView extends javax.swing.JPanel {
                     .addComponent(buscarUser_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscarUser_btn))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollP_Users, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                .addComponent(jScrollP_Users, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -238,19 +246,26 @@ public class UsuariosView extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(datosUsuario_jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(opcionesUser_jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(listaUser_jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(listaUser_jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(28, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(datosUsuario_jpnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(opcionesUser_jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datosUsuario_jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(opcionesUser_jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(opcionesUser_jpnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(datosUsuario_jpnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(listaUser_jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(listaUser_jpnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

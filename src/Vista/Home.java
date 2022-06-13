@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -26,14 +27,33 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         this.setLocationRelativeTo(null);
-        UsuariosView u = new UsuariosView();
-        JFrame jf= new JFrame();
-        jf.getContentPane().add(u);
+        //UsuariosView u = new UsuariosView();
+        //JFrame jf= new JFrame();
+        //jf.getContentPane().add(u);
         
-        
+        UsuariosView user= new UsuariosView();
+        ShowPanel(user);
         
         
     }
+    
+    /**
+     * Método para llamar los formularios que quiero mostrar en el contenido del jFrame
+     * Parametro de entrada es el jPanel que queremos mostrar
+     */
+    private void ShowPanel(JPanel jp){
+        
+        jp.setSize(750,550);
+        jp.setLocation(0, 0);
+        
+        content_jpnl.removeAll();
+        content_jpnl.add(jp, BorderLayout.CENTER);
+        content_jpnl.revalidate();
+        content_jpnl.repaint();
+        
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,10 +65,7 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
-        jPanel1 = new javax.swing.JPanel();
-        clientesJBTN = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        content_jpnl = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_Empresas = new javax.swing.JMenu();
         jM_usuarios = new javax.swing.JMenu();
@@ -67,45 +84,21 @@ public class Home extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        content_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
+        content_jpnl.setMaximumSize(new java.awt.Dimension(750, 550));
+        content_jpnl.setMinimumSize(new java.awt.Dimension(750, 550));
+        content_jpnl.setName(""); // NOI18N
+        content_jpnl.setPreferredSize(new java.awt.Dimension(750, 550));
+        getContentPane().add(content_jpnl, "cardContenido");
 
-        clientesJBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/admin_person_user_man_2839.png"))); // NOI18N
-        clientesJBTN.setText("CLIENTES");
-        clientesJBTN.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        clientesJBTN.setBorderPainted(false);
-        clientesJBTN.setContentAreaFilled(false);
-        clientesJBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientesJBTNActionPerformed(evt);
-            }
-        });
-        jPanel1.add(clientesJBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 230, 240));
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 102, 204));
-        jTextField1.setText("Bienvenido a la herramienta  ");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 340, 70));
-
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(51, 153, 255));
-        jTextField2.setText("MEDICAL PROJECT MANAGEMENT");
-        jTextField2.setBorder(null);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 420, 50));
-
-        getContentPane().add(jPanel1, "card2");
-
-        jMenuBar1.setBackground(new java.awt.Color(0, 153, 255));
+        jMenuBar1.setBackground(new java.awt.Color(0, 102, 255));
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.setMaximumSize(new java.awt.Dimension(390, 32768));
+        jMenuBar1.setMinimumSize(new java.awt.Dimension(446, 33));
+        jMenuBar1.setOpaque(true);
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(446, 33));
 
         jM_Empresas.setText("Empresas");
         jM_Empresas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,9 +109,19 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1.add(jM_Empresas);
 
         jM_usuarios.setText("Usuarios");
+        jM_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jM_usuariosMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jM_usuarios);
 
         jM_Proyectos.setText("Proyectos");
+        jM_Proyectos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jM_ProyectosMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jM_Proyectos);
 
         jM_tareas.setText("Tareas");
@@ -138,19 +141,20 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void clientesJBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesJBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clientesJBTNActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jM_EmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jM_EmpresasMouseClicked
-        EmpresaV em=new EmpresaV();
-        em.setVisible(true);
-        this.dispose();
+        EmpresasView em= new EmpresasView();
+        ShowPanel(em);
     }//GEN-LAST:event_jM_EmpresasMouseClicked
+
+    private void jM_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jM_usuariosMouseClicked
+        UsuariosView user= new UsuariosView();
+        ShowPanel(user);
+    }//GEN-LAST:event_jM_usuariosMouseClicked
+
+    private void jM_ProyectosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jM_ProyectosMouseClicked
+        ProyectosView pr= new ProyectosView();
+        ShowPanel(pr);
+    }//GEN-LAST:event_jM_ProyectosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -186,7 +190,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton clientesJBTN;
+    private javax.swing.JPanel content_jpnl;
     private javax.swing.JMenu jM_Empresas;
     private javax.swing.JMenu jM_Proyectos;
     private javax.swing.JMenu jM_clientes;
@@ -196,8 +200,5 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu jM_usuarios;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

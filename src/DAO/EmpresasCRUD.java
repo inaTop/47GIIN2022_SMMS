@@ -14,6 +14,8 @@ import java.util.List;
  
 import Modelo.Conexion;
 import Modelo.EmpresaM;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -23,14 +25,16 @@ import Modelo.EmpresaM;
 public class EmpresasCRUD implements IEmpresas {
     
     
+    
+    
     @Override
     public boolean anyadirEmpresa(EmpresaM empresa){
       boolean anyadir=false; 
       Statement st=null; 
       Connection con=null; 
       
-      String sql="INSERT INTO empresa VALUES (NULL,'"+ empresa.getID_empresa()+"','"+ empresa.getNom_empresa()+"','"+ empresa.getDescr_empresa()+" ')";
-      
+      String sql="INSERT INTO empresa VALUES (NULL,'"+ empresa.getNom_empresa()+"','"+ empresa.getDescr_empresa()+" ')";
+     
        System.out.println("Añadimos el registro " + empresa.getNom_empresa());
         try {
           con=Conexion.conectarBD();
@@ -61,7 +65,7 @@ public class EmpresasCRUD implements IEmpresas {
         
         String sql="SELECT * FROM empresa ORDER BY IdEmpresa";
         
-        List<EmpresaM> listaEmpresas=new ArrayList<EmpresaM>(); 
+        List<EmpresaM> listaEmpresas=new ArrayList<>(); 
         
         try {			
 			co= Conexion.conectarBD();
@@ -124,8 +128,8 @@ public class EmpresasCRUD implements IEmpresas {
         boolean eliminar=false; 
         
         String sql="DELETE FROM empresa WHERE idEmpresa="+empresa.getID_empresa();
-        String sql2="DELETE FROM empresa WHERE nom_empresa="+empresa.getNom_empresa();
-       
+        //String sql="DELETE FROM empresa WHERE nom_empresa="+empresa.getNom_empresa();
+        
        
 
         try {
@@ -144,6 +148,51 @@ public class EmpresasCRUD implements IEmpresas {
         return eliminar;
         
     }
+    
+    
+    public DefaultTableModel mostrar(String buscar)
+    {
+        
+    Connection conn=null;
+    Statement stm=null; 
+        
+    DefaultTableModel modelo;
+    String [] titulos={"Codigo","Nombre","Descripción"};
+    String [] registro=new String [8];
+    
+    modelo=new DefaultTableModel(null,titulos);
+    
+    String sSQL="select * from empresa where nom_empresa like '%"+buscar+"%' order by idempresa";
+    try{
+        
+        conn=Conexion.conectarBD();
+        //Declaro variable de tipo Statement 
+        stm=conn.createStatement();
+        //stm.execute(sSQL);
+ 
+    //crear variable tipo resultset ejecuta la consulta de arriba
+    ResultSet rs=stm.executeQuery(sSQL);
+    
+    while(rs.next())
+    {
+       registro [0]=rs.getString("idempresa");
+       registro [1]=rs.getString("nom_empresa");
+       registro [2]=rs.getString("descripcion");
+       modelo.addRow(registro);
+    }
+    return modelo;
+    }catch(Exception e){
+        JOptionPane.showConfirmDialog(null, e);
+        return null;
+    }
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
 }

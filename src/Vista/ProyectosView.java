@@ -92,7 +92,7 @@ public class ProyectosView extends javax.swing.JPanel {
                 .addContainerGap(198, Short.MAX_VALUE))
         );
 
-        listaProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista usuarios:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
+        listaProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista proyectos:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
         buscarProy_btn.setBackground(new java.awt.Color(0, 153, 255));
         buscarProy_btn.setForeground(new java.awt.Color(255, 255, 255));

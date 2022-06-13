@@ -4,8 +4,6 @@
  */
 package Modelo;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author InaRu
@@ -18,7 +16,7 @@ public class EmpresaM {
 
     public EmpresaM() {
         
-       JOptionPane.showMessageDialog(null,"Empresa creada con éxito");
+       //JOptionPane.showMessageDialog(null,"Empresa creada con éxito");
         
     }
 

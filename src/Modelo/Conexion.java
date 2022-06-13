@@ -8,7 +8,6 @@ package Modelo;
 */
 
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 
 /**
@@ -29,7 +28,7 @@ public class Conexion {
         Connection con = null;
         String password = "";
 	String usuario = "root";
-	String url = "jdbc:mysql://localhost:3307/mps?user=" + usuario
+	String url = "jdbc:mysql://localhost:3306/mps?user=" + usuario
 				+ "&password=" + password;
 		try {
 			con = DriverManager.getConnection(url);
@@ -61,6 +60,9 @@ public class Conexion {
     public void setConnection(Connection conexion){
         con=conexion;
     }
+    
+     
+        
     
    /*public ResultSet consultar(String sql) {
         ResultSet resultado;
