@@ -4,20 +4,29 @@
  */
 package Vista;
 
+import DAO.EmpresasCRUD;
+import DAO.UsuariosCRUD;
 import java.util.List;
 import Modelo.UsuariosM;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author InaRu
  */
 public class UsuariosView extends javax.swing.JPanel {
-
+ private String accion = "guardar";
+ 
+    
     /**
      * Creates new form NewJPanel
      */
     public UsuariosView() {
         initComponents();
+        mostrarU("");
+        codigoU_txt.setEnabled(false);
         
     }
     
@@ -45,17 +54,19 @@ public class UsuariosView extends javax.swing.JPanel {
 
         datosUsuario_jpnl = new javax.swing.JPanel();
         nomUsuario_txt = new javax.swing.JTextField();
-        emailsuario_txt = new javax.swing.JTextField();
+        emailU_txt = new javax.swing.JTextField();
         passUsuario_txt = new javax.swing.JTextField();
         nomUser_lbl = new javax.swing.JLabel();
         emailUser_lbl = new javax.swing.JLabel();
         passUser_lbl = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        empresaU_txt = new javax.swing.JTextField();
         empresaUser_lbl = new javax.swing.JLabel();
         rol_lbl = new javax.swing.JLabel();
         roles_combo = new javax.swing.JComboBox<>();
+        codigoU_lbl = new javax.swing.JLabel();
+        codigoU_txt = new javax.swing.JButton();
         opcionesUser_jpnl = new javax.swing.JPanel();
-        crearUser_btn = new javax.swing.JButton();
+        nuevoUser_btn = new javax.swing.JButton();
         editUser_btn = new javax.swing.JButton();
         eliminarUser_btn = new javax.swing.JButton();
         guardarUser_btn = new javax.swing.JButton();
@@ -90,6 +101,13 @@ public class UsuariosView extends javax.swing.JPanel {
         rol_lbl.setText("Rol:");
 
         roles_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Coordinador", "MW", "TL ( Team Leader)" }));
+        roles_combo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roles_comboActionPerformed(evt);
+            }
+        });
+
+        codigoU_lbl.setText("Codigo");
 
         javax.swing.GroupLayout datosUsuario_jpnlLayout = new javax.swing.GroupLayout(datosUsuario_jpnl);
         datosUsuario_jpnl.setLayout(datosUsuario_jpnlLayout);
@@ -106,48 +124,56 @@ public class UsuariosView extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(emailsuario_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                        .addComponent(jTextField2)
+                        .addComponent(emailU_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                        .addComponent(empresaU_txt)
                         .addComponent(passUsuario_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(nomUsuario_txt))
-                    .addComponent(roles_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(datosUsuario_jpnlLayout.createSequentialGroup()
+                        .addComponent(roles_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(codigoU_lbl)
+                        .addGap(18, 18, 18)
+                        .addComponent(codigoU_txt)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         datosUsuario_jpnlLayout.setVerticalGroup(
             datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datosUsuario_jpnlLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rol_lbl)
-                    .addComponent(roles_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codigoU_txt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rol_lbl)
+                        .addComponent(roles_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(codigoU_lbl)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomUser_lbl)
                     .addComponent(nomUsuario_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailsuario_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailU_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailUser_lbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(empresaU_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(empresaUser_lbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passUsuario_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passUser_lbl))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
         );
 
         opcionesUser_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         opcionesUser_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
-        crearUser_btn.setBackground(new java.awt.Color(0, 153, 204));
-        crearUser_btn.setForeground(new java.awt.Color(255, 255, 255));
-        crearUser_btn.setText("Crear");
-        crearUser_btn.addActionListener(new java.awt.event.ActionListener() {
+        nuevoUser_btn.setBackground(new java.awt.Color(0, 153, 204));
+        nuevoUser_btn.setForeground(new java.awt.Color(255, 255, 255));
+        nuevoUser_btn.setText("Nuevo");
+        nuevoUser_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crearUser_btnActionPerformed(evt);
+                nuevoUser_btnActionPerformed(evt);
             }
         });
 
@@ -178,21 +204,21 @@ public class UsuariosView extends javax.swing.JPanel {
                     .addComponent(guardarUser_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(eliminarUser_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                     .addComponent(editUser_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(crearUser_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nuevoUser_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(16, 16, 16))
         );
         opcionesUser_jpnlLayout.setVerticalGroup(
             opcionesUser_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(opcionesUser_jpnlLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(crearUser_btn)
+                .addComponent(nuevoUser_btn)
                 .addGap(18, 18, 18)
                 .addComponent(editUser_btn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(eliminarUser_btn)
                 .addGap(18, 18, 18)
                 .addComponent(guardarUser_btn)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         listaUser_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
@@ -201,18 +227,45 @@ public class UsuariosView extends javax.swing.JPanel {
         buscarUser_btn.setBackground(new java.awt.Color(0, 153, 204));
         buscarUser_btn.setForeground(new java.awt.Color(255, 255, 255));
         buscarUser_btn.setText("Buscar");
+        buscarUser_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarUser_btnActionPerformed(evt);
+            }
+        });
 
         usuario_jTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Ident. usuario", "Nombre", "Contraseña", "Email", "Empresa", "Rol"
+                "Rol", "Codigo", "Nombre", "Email", "Empresa", "Contraseña"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        usuario_jTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usuario_jTblMouseClicked(evt);
+            }
+        });
         jScrollP_Users.setViewportView(usuario_jTbl);
 
         javax.swing.GroupLayout listaUser_jpnlLayout = new javax.swing.GroupLayout(listaUser_jpnl);
@@ -273,31 +326,119 @@ public class UsuariosView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nomUsuario_txtActionPerformed
 
-    private void crearUser_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUser_btnActionPerformed
-
-    }//GEN-LAST:event_crearUser_btnActionPerformed
+    private void nuevoUser_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoUser_btnActionPerformed
+        nomUsuario_txt.setText("");
+        emailU_txt.setText("");
+        passUsuario_txt.setText("");
+        codigoU_txt.setText("");
+        empresaU_txt.setText("");
+        roles_combo.setSelectedItem(null);
+         
+    }//GEN-LAST:event_nuevoUser_btnActionPerformed
 
     private void guardarUser_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarUser_btnActionPerformed
-        // TODO add your handling code here:
+        codigoU_txt.setEnabled(false);
+        
+        if (nomUsuario_txt.getText().length() == 0) {
+            JOptionPane.showConfirmDialog(null, "Debes ingresar un nombre de usuario");
+            nomUsuario_txt.requestFocus();
+            return;
+        }
+        
+        if (passUsuario_txt.getText().length() == 0) {
+            JOptionPane.showConfirmDialog(null, "Debes ingresar una contraseña para el usuario");
+            passUsuario_txt.requestFocus();
+            return;
+        }
+        
+        if (empresaU_txt.getText().length() == 0) {
+            JOptionPane.showConfirmDialog(null, "Debes ingresar una empresa para el usuario");
+            empresaU_txt.requestFocus();
+            return;
+        }
+        
+        
+        UsuariosM uM = new UsuariosM();
+        UsuariosCRUD uC = new UsuariosCRUD();
+        
+        uM.setNom_usuario(nomUsuario_txt.getText());
+        uM.setPass(passUsuario_txt.getText());
+        uM.setRol((String) roles_combo.getSelectedItem());
+        uM.setEmail(emailU_txt.getText());
+        uM.setEmpresa(empresaU_txt.getText());
+        
+        
+        if (accion.equals("guardar")) {
+          if (uC.anyadirUsuario(uM)) {
+                JOptionPane.showMessageDialog(null, "El cliente fue registrado satisfactoriamente");
+                mostrarU("");
+            }
+                
+        }  
+        else if (accion.equals("editar")){
+            uM.setIdUsuario(Integer.parseInt(codigoU_txt.getText()));
+            
+            if (uC.modificar(uM)) {
+                JOptionPane.showMessageDialog(null, "El cliente fue Editado satisfactoriamente");
+                mostrarU("");
+                
+            }
+        }
+           
+           
+        
     }//GEN-LAST:event_guardarUser_btnActionPerformed
+
+    private void buscarUser_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUser_btnActionPerformed
+        mostrarU(buscarUser_txt.getText());
+    }//GEN-LAST:event_buscarUser_btnActionPerformed
+
+    private void usuario_jTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuario_jTblMouseClicked
+
+ 
+        
+        codigoU_txt.setEnabled(false);
+        accion="Modificar";
+        int fila = usuario_jTbl.rowAtPoint(evt.getPoint());
+       
+        codigoU_txt.setText(usuario_jTbl.getValueAt(fila, 0).toString());
+        nomUsuario_txt.setText(usuario_jTbl.getValueAt(fila, 1).toString());
+        passUsuario_txt.setText(usuario_jTbl.getValueAt(fila, 2).toString());
+        roles_combo.setSelectedItem(usuario_jTbl.getValueAt(fila, 3).toString());
+        emailU_txt.setText(usuario_jTbl.getValueAt(fila, 4).toString());
+        empresaU_txt.setText(usuario_jTbl.getValueAt(fila, 5).toString());
+        
+        
+        
+
+
+       
+        
+    }//GEN-LAST:event_usuario_jTblMouseClicked
+
+    private void roles_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roles_comboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roles_comboActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarUser_btn;
     private javax.swing.JTextField buscarUser_txt;
-    private javax.swing.JButton crearUser_btn;
+    private javax.swing.JLabel codigoU_lbl;
+    private javax.swing.JButton codigoU_txt;
     private javax.swing.JPanel datosUsuario_jpnl;
     private javax.swing.JButton editUser_btn;
     private javax.swing.JButton eliminarUser_btn;
+    private javax.swing.JTextField emailU_txt;
     private javax.swing.JLabel emailUser_lbl;
-    private javax.swing.JTextField emailsuario_txt;
+    private javax.swing.JTextField empresaU_txt;
     private javax.swing.JLabel empresaUser_lbl;
     private javax.swing.JButton guardarUser_btn;
     private javax.swing.JScrollPane jScrollP_Users;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel listaUser_jpnl;
     private javax.swing.JLabel nomUser_lbl;
     private javax.swing.JTextField nomUsuario_txt;
+    private javax.swing.JButton nuevoUser_btn;
     private javax.swing.JPanel opcionesUser_jpnl;
     private javax.swing.JLabel passUser_lbl;
     private javax.swing.JTextField passUsuario_txt;
@@ -305,4 +446,22 @@ public class UsuariosView extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> roles_combo;
     private javax.swing.JTable usuario_jTbl;
     // End of variables declaration//GEN-END:variables
+
+
+void mostrarU(String buscar) {
+        try {
+            DefaultTableModel modeloU;
+            UsuariosCRUD uC = new UsuariosCRUD();
+            modeloU= uC.mostrar(buscar);
+
+            usuario_jTbl.setModel(modeloU);
+
+        } catch (Exception e) {
+         
+            JOptionPane.showConfirmDialog(null, e);
+        }
+    }
+
+
+
 }
