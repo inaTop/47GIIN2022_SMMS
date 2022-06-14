@@ -125,12 +125,27 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1.add(jM_Proyectos);
 
         jM_tareas.setText("Tareas");
+        jM_tareas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jM_tareasMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jM_tareas);
 
         jM_clientes.setText("Clientes");
+        jM_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jM_clientesMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jM_clientes);
 
         jM_fact.setText("Facturación");
+        jM_fact.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jM_factMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jM_fact);
 
         jM_informes.setText("Informes ");
@@ -155,6 +170,21 @@ public class Home extends javax.swing.JFrame {
         ProyectosView pr= new ProyectosView();
         ShowPanel(pr);
     }//GEN-LAST:event_jM_ProyectosMouseClicked
+
+    private void jM_tareasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jM_tareasMouseClicked
+        TareasView pr= new TareasView();
+        ShowPanel(pr);
+    }//GEN-LAST:event_jM_tareasMouseClicked
+
+    private void jM_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jM_clientesMouseClicked
+        ClientesView pr= new ClientesView();
+        ShowPanel(pr);
+    }//GEN-LAST:event_jM_clientesMouseClicked
+
+    private void jM_factMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jM_factMouseClicked
+       FacturasView pr= new FacturasView();
+        ShowPanel(pr);
+    }//GEN-LAST:event_jM_factMouseClicked
 
     /**
      * @param args the command line arguments

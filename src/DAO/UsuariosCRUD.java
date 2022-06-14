@@ -11,6 +11,8 @@ import java.util.List;
 import Modelo.Conexion;
 
 import Modelo.UsuariosM;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,7 +26,7 @@ public class UsuariosCRUD implements IUsuarios {
       Statement st=null; 
       Connection con=null; 
       
-      String sql="INSERT INTO usuarios VALUES (NULL,'"+ usuario.getIdUsuario()+"','"+ usuario.getNom_usuario()+"', '"+usuario.getPass()+"',' "+usuario.getEmail()+"','"+usuario.getEmpresa()+"','"+usuario.getRol()+" ')";
+      String sql="INSERT INTO usuarios VALUES (NULL,'"+ usuario.getNom_usuario()+"', '"+usuario.getPass()+"',' "+usuario.getEmail()+"','"+usuario.getEmpresa()+"','"+usuario.getRol()+" ')";
       
        System.out.println("Añadimos el registro " + usuario.getNom_usuario());
         try {
@@ -123,7 +125,7 @@ public class UsuariosCRUD implements IUsuarios {
         boolean eliminar=false; 
         
         String sql="DELETE FROM usuarios WHERE idUsuarios="+usuario.getIdUsuario();
-        String sql2="DELETE FROM usuarios WHERE nom_usuarios="+usuario.getNom_usuario();
+        //String sql2="DELETE FROM usuarios WHERE nom_usuarios="+usuario.getNom_usuario();
        
        
 
@@ -166,7 +168,75 @@ public class UsuariosCRUD implements IUsuarios {
         }
         return devuelta;
     }
+   
+    
         
+    public DefaultTableModel mostrar(String buscar)
+    {
+        
+    Connection conn=null;
+    Statement stm=null; 
+        
+    DefaultTableModel modeloU;
+    String [] titulos={"Codigo","Nombre","Contraseña","Rol","Email","Empresa"};
+    String [] registro=new String [8];
+    
+    modeloU=new DefaultTableModel(null,titulos);
+    
+    String sSQL="select * from usuarios where nom_usuario like '%"+buscar+"%' order by idusuarios";
+    try{
+        
+        conn=Conexion.conectarBD();
+        //Declaro variable de tipo Statement 
+        stm=conn.createStatement();
+        //stm.execute(sSQL);
+ 
+    //crear variable tipo resultset ejecuta la consulta de arriba
+    ResultSet rs=stm.executeQuery(sSQL);
+    
+    while(rs.next())
+    {
+       registro [0]=rs.getString("idusuarios");
+       registro [1]=rs.getString("nom_usuario");
+       registro [2]=rs.getString("contrasenya");
+       registro [3]=rs.getString("idRol");
+       registro [4]=rs.getString("email");
+       registro [5]=rs.getString("empresa");
+       modeloU.addRow(registro);
+    }
+    return modeloU;
+    }catch(Exception e){
+        JOptionPane.showConfirmDialog(null, e);
+        return null;
+    }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
     
     

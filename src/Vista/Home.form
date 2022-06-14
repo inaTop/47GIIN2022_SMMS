@@ -61,16 +61,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Tareas"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jM_tareasMouseClicked"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jM_clientes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jM_clientesMouseClicked"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jM_fact">
           <Properties>
             <Property name="text" type="java.lang.String" value="Facturaci&#xf3;n"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jM_factMouseClicked"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jM_informes">
           <Properties>

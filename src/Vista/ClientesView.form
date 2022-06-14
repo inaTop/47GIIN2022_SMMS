@@ -37,7 +37,7 @@
               <Component id="opcionesProy_jpnl" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <Component id="listaProy_jpnl" max="32767" attributes="0"/>
+              <Component id="listaCLI_jpnl" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -53,8 +53,8 @@
                   <Component id="opcionesProy_jpnl" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="listaProy_jpnl" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Component id="listaCLI_jpnl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,10 +81,10 @@
                   <EmptySpace pref="33" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="salir_btn" min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="guardarPR_btn" min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="eliminarPR_btn" min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="editPR_btn" min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="nuevoPR_btn" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="guardarCLI_btn" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="eliminarCLI_btn" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="editCLI_btn" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="nuevoCLI_btn" min="-2" pref="116" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
@@ -94,13 +94,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="nuevoPR_btn" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="nuevoCLI_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="editPR_btn" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="editCLI_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="eliminarPR_btn" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="eliminarCLI_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="guardarPR_btn" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="guardarCLI_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="salir_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -109,7 +109,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="nuevoPR_btn">
+        <Component class="javax.swing.JButton" name="nuevoCLI_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -120,10 +120,10 @@
             <Property name="text" type="java.lang.String" value="Nuevo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nuevoPR_btnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nuevoCLI_btnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="editPR_btn">
+        <Component class="javax.swing.JButton" name="editCLI_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -134,7 +134,7 @@
             <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="eliminarPR_btn">
+        <Component class="javax.swing.JButton" name="eliminarCLI_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -145,7 +145,7 @@
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="guardarPR_btn">
+        <Component class="javax.swing.JButton" name="guardarCLI_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -156,7 +156,7 @@
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarPR_btnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarCLI_btnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="salir_btn">
@@ -175,14 +175,14 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="listaProy_jpnl">
+    <Container class="javax.swing.JPanel" name="listaCLI_jpnl">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="e3" green="e3" id="Control Highlight" palette="2" red="e3" type="palette"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Lista proyectos:">
+            <TitledBorder title="Lista clientes:">
               <Font PropertyName="font" name="Segoe UI" size="12" style="1"/>
               <Color PropertyName="color" blue="cc" green="99" red="0" type="rgb"/>
             </TitledBorder>
@@ -201,9 +201,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="buscarProy_txt" min="-2" pref="550" max="-2" attributes="0"/>
+                          <Component id="buscarCLI_txt" min="-2" pref="550" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="buscarProy_btn" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="buscarCLI_btn" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -215,20 +215,20 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buscarProy_btn" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="buscarProy_txt" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="buscarCLI_btn" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="buscarCLI_txt" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollP_Proy" min="-2" pref="167" max="-2" attributes="0"/>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="buscarProy_txt">
+        <Component class="javax.swing.JTextField" name="buscarCLI_txt">
         </Component>
-        <Component class="javax.swing.JButton" name="buscarProy_btn">
+        <Component class="javax.swing.JButton" name="buscarCLI_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -238,6 +238,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarCLI_btnActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollP_Proy">
           <AuxValues>
@@ -246,17 +249,13 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="proyectos_jTbl">
+            <Component class="javax.swing.JTable" name="clientes_jTbl">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="8" rowCount="4">
-                    <Column editable="true" title="C&#xf3;digo" type="java.lang.Object"/>
-                    <Column editable="true" title="Estado" type="java.lang.Object"/>
+                  <Table columnCount="4" rowCount="4">
+                    <Column editable="true" title="ID" type="java.lang.Object"/>
                     <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                    <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                    <Column editable="true" title="Cliente" type="java.lang.Object"/>
-                    <Column editable="true" title="Fecha inicio" type="java.lang.Object"/>
-                    <Column editable="true" title="Fecha entrega" type="java.lang.Object"/>
+                    <Column editable="true" title="Empresa" type="java.lang.Object"/>
                     <Column editable="true" title="Descripci&#xf3;n" type="java.lang.Object"/>
                   </Table>
                 </Property>
@@ -264,26 +263,6 @@
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Cliente"/>
                       <Editor/>
                       <Renderer/>
                     </Column>
@@ -336,45 +315,24 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tipoCombo" min="-2" pref="81" max="-2" attributes="0"/>
-                              <Component id="fechainiPR_txt" min="-2" pref="81" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="clientePR_txt" min="-2" pref="81" max="-2" attributes="0"/>
-                              <Component id="fechafinPR_txt" min="-2" pref="81" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="361" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <Component id="codPR_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="codPR_txt" min="-2" pref="45" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="estadoPR_txt" min="-2" pref="81" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="nomPR_txt" min="-2" pref="348" max="-2" attributes="0"/>
+                              <Component id="nomCLI_txt" min="-2" pref="354" max="-2" attributes="0"/>
+                              <Component id="idCLI_txt" min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="empresaCLI_txt" min="-2" pref="354" max="-2" attributes="0"/>
+                              <Component id="descripcionCLI_txt" min="-2" pref="354" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -387,36 +345,25 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="idCLI_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="codPR_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="codPR_txt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="estadoPR_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="nomPR_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomCLI_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tipoCombo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="clientePR_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="empresaCLI_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fechainiPR_txt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fechafinPR_txt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="descripcionCLI_txt" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -424,7 +371,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="codPR_lbl">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Codigo:"/>
+            <Property name="text" type="java.lang.String" value="ID:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -432,80 +379,26 @@
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="codPR_txt">
+        <Component class="javax.swing.JTextField" name="idCLI_txt">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codPR_txtActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idCLI_txtActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="nomPR_txt">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Estado:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="estadoPR_txt">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha inicio: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="fechainiPR_txt">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha entrega:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="fechafinPR_txt">
+        <Component class="javax.swing.JTextField" name="descripcionCLI_txt">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Empresa:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="text" type="java.lang.String" value="Descripci&#xf3;n:"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="descripcionPR_txt">
-              <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="rows" type="int" value="5"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JLabel" name="jLabel6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo:"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="empresaCLI_txt">
         </Component>
-        <Component class="javax.swing.JComboBox" name="tipoCombo">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cliente:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="clientePR_txt">
+        <Component class="javax.swing.JTextField" name="nomCLI_txt">
         </Component>
       </SubComponents>
     </Container>
