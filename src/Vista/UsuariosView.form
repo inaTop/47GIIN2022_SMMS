@@ -79,7 +79,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="nomUser_lbl" min="-2" pref="59" max="-2" attributes="0"/>
@@ -98,7 +98,9 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="roles_combo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="agregarRol_btn" min="-2" pref="21" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="codigoU_lbl" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="codigoU_txt" min="-2" max="-2" attributes="0"/>
@@ -111,7 +113,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="codigoU_txt" alignment="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -119,6 +121,7 @@
                           <Component id="roles_combo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="codigoU_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="agregarRol_btn" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -206,6 +209,13 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="codigoU_txt">
+        </Component>
+        <Component class="javax.swing.JButton" name="agregarRol_btn">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/descarga.png"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -347,7 +357,7 @@
                       <Component id="buscarUser_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollP_Users" pref="246" max="32767" attributes="0"/>
+                  <Component id="jScrollP_Users" pref="239" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>

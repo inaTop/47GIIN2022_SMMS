@@ -55,7 +55,8 @@ public class ClientesView extends javax.swing.JPanel {
         opcionesProy_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         opcionesProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
-        nuevoCLI_btn.setBackground(new java.awt.Color(0, 153, 255));
+        nuevoCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
+        nuevoCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nuevoCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
         nuevoCLI_btn.setText("Nuevo");
         nuevoCLI_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -64,15 +65,18 @@ public class ClientesView extends javax.swing.JPanel {
             }
         });
 
-        editCLI_btn.setBackground(new java.awt.Color(0, 153, 255));
+        editCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
+        editCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         editCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
         editCLI_btn.setText("Editar");
 
-        eliminarCLI_btn.setBackground(new java.awt.Color(0, 153, 255));
+        eliminarCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
+        eliminarCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         eliminarCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
         eliminarCLI_btn.setText("Eliminar");
 
-        guardarCLI_btn.setBackground(new java.awt.Color(0, 153, 255));
+        guardarCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
+        guardarCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         guardarCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
         guardarCLI_btn.setText("Guardar");
         guardarCLI_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +85,8 @@ public class ClientesView extends javax.swing.JPanel {
             }
         });
 
-        salir_btn.setBackground(new java.awt.Color(0, 153, 255));
+        salir_btn.setBackground(new java.awt.Color(0, 153, 204));
+        salir_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         salir_btn.setForeground(new java.awt.Color(255, 255, 255));
         salir_btn.setText("Salir");
         salir_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +128,8 @@ public class ClientesView extends javax.swing.JPanel {
         listaCLI_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         listaCLI_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista clientes:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(0, 153, 204))); // NOI18N
 
-        buscarCLI_btn.setBackground(new java.awt.Color(0, 153, 255));
+        buscarCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
+        buscarCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buscarCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
         buscarCLI_btn.setText("Buscar");
         buscarCLI_btn.addActionListener(new java.awt.event.ActionListener() {

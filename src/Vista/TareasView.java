@@ -61,7 +61,7 @@ public class TareasView extends javax.swing.JPanel {
         opcionesProy_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         opcionesProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
-        nuevaTA_btn.setBackground(new java.awt.Color(0, 153, 255));
+        nuevaTA_btn.setBackground(new java.awt.Color(0, 153, 204));
         nuevaTA_btn.setForeground(new java.awt.Color(255, 255, 255));
         nuevaTA_btn.setText("Nueva");
         nuevaTA_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -70,15 +70,15 @@ public class TareasView extends javax.swing.JPanel {
             }
         });
 
-        editTA_btn.setBackground(new java.awt.Color(0, 153, 255));
+        editTA_btn.setBackground(new java.awt.Color(0, 153, 204));
         editTA_btn.setForeground(new java.awt.Color(255, 255, 255));
         editTA_btn.setText("Editar");
 
-        eliminarTA_btn.setBackground(new java.awt.Color(0, 153, 255));
+        eliminarTA_btn.setBackground(new java.awt.Color(0, 153, 204));
         eliminarTA_btn.setForeground(new java.awt.Color(255, 255, 255));
         eliminarTA_btn.setText("Eliminar");
 
-        guardarTA_btn.setBackground(new java.awt.Color(0, 153, 255));
+        guardarTA_btn.setBackground(new java.awt.Color(0, 153, 204));
         guardarTA_btn.setForeground(new java.awt.Color(255, 255, 255));
         guardarTA_btn.setText("Guardar");
         guardarTA_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +87,7 @@ public class TareasView extends javax.swing.JPanel {
             }
         });
 
-        salir_btn.setBackground(new java.awt.Color(0, 153, 255));
+        salir_btn.setBackground(new java.awt.Color(0, 153, 204));
         salir_btn.setForeground(new java.awt.Color(255, 255, 255));
         salir_btn.setText("Salir");
         salir_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +129,7 @@ public class TareasView extends javax.swing.JPanel {
         listaProy_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         listaProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista tareas:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(0, 153, 204))); // NOI18N
 
-        buscarTA_btn.setBackground(new java.awt.Color(0, 153, 255));
+        buscarTA_btn.setBackground(new java.awt.Color(0, 153, 204));
         buscarTA_btn.setForeground(new java.awt.Color(255, 255, 255));
         buscarTA_btn.setText("Buscar");
         buscarTA_btn.addActionListener(new java.awt.event.ActionListener() {

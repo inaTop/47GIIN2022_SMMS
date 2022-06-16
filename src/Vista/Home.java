@@ -74,6 +74,7 @@ public class Home extends javax.swing.JFrame {
         jM_clientes = new javax.swing.JMenu();
         jM_fact = new javax.swing.JMenu();
         jM_informes = new javax.swing.JMenu();
+        Salir_menu = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -91,7 +92,7 @@ public class Home extends javax.swing.JFrame {
         content_jpnl.setPreferredSize(new java.awt.Dimension(750, 550));
         getContentPane().add(content_jpnl, "cardContenido");
 
-        jMenuBar1.setBackground(new java.awt.Color(0, 102, 255));
+        jMenuBar1.setBackground(new java.awt.Color(0, 153, 204));
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -151,6 +152,14 @@ public class Home extends javax.swing.JFrame {
         jM_informes.setText("Informes ");
         jMenuBar1.add(jM_informes);
 
+        Salir_menu.setText("Salir");
+        Salir_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Salir_menuMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Salir_menu);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -186,6 +195,10 @@ public class Home extends javax.swing.JFrame {
         ShowPanel(pr);
     }//GEN-LAST:event_jM_factMouseClicked
 
+    private void Salir_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Salir_menuMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_Salir_menuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -220,6 +233,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Salir_menu;
     private javax.swing.JPanel content_jpnl;
     private javax.swing.JMenu jM_Empresas;
     private javax.swing.JMenu jM_Proyectos;

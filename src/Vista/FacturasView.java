@@ -57,7 +57,8 @@ public class FacturasView extends javax.swing.JPanel {
         opcionesProy_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         opcionesProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
-        nuevaFAC_btn.setBackground(new java.awt.Color(0, 153, 255));
+        nuevaFAC_btn.setBackground(new java.awt.Color(0, 153, 204));
+        nuevaFAC_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nuevaFAC_btn.setForeground(new java.awt.Color(255, 255, 255));
         nuevaFAC_btn.setText("Nueva");
         nuevaFAC_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -66,15 +67,18 @@ public class FacturasView extends javax.swing.JPanel {
             }
         });
 
-        editFAC_btn.setBackground(new java.awt.Color(0, 153, 255));
+        editFAC_btn.setBackground(new java.awt.Color(0, 153, 204));
+        editFAC_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         editFAC_btn.setForeground(new java.awt.Color(255, 255, 255));
         editFAC_btn.setText("Editar");
 
-        eliminarFAC_btn.setBackground(new java.awt.Color(0, 153, 255));
+        eliminarFAC_btn.setBackground(new java.awt.Color(0, 153, 204));
+        eliminarFAC_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         eliminarFAC_btn.setForeground(new java.awt.Color(255, 255, 255));
         eliminarFAC_btn.setText("Eliminar");
 
-        guardarFAC_btn.setBackground(new java.awt.Color(0, 153, 255));
+        guardarFAC_btn.setBackground(new java.awt.Color(0, 153, 204));
+        guardarFAC_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         guardarFAC_btn.setForeground(new java.awt.Color(255, 255, 255));
         guardarFAC_btn.setText("Guardar");
         guardarFAC_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +87,8 @@ public class FacturasView extends javax.swing.JPanel {
             }
         });
 
-        salir_btn.setBackground(new java.awt.Color(0, 153, 255));
+        salir_btn.setBackground(new java.awt.Color(0, 153, 204));
+        salir_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         salir_btn.setForeground(new java.awt.Color(255, 255, 255));
         salir_btn.setText("Salir");
         salir_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +130,8 @@ public class FacturasView extends javax.swing.JPanel {
         listaProy_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         listaProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista facturas:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(0, 153, 204))); // NOI18N
 
-        buscarFAC_btn.setBackground(new java.awt.Color(0, 153, 255));
+        buscarFAC_btn.setBackground(new java.awt.Color(0, 153, 204));
+        buscarFAC_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buscarFAC_btn.setForeground(new java.awt.Color(255, 255, 255));
         buscarFAC_btn.setText("Buscar");
         buscarFAC_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -136,15 +142,16 @@ public class FacturasView extends javax.swing.JPanel {
 
         facturas_jTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {"1", "12-6-2022", "22001_Roche_AB", "2201P_AB Roche", "1500"},
+                {"2", "10-5-2022", "21013_AZ", "21013_AZ_SlideKit", "2575"},
                 {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, ""}
             },
             new String [] {
                 "ID", "Fecha", "Nombre", "Propuesta", "Total"
             }
         ));
+        facturas_jTbl.setCellSelectionEnabled(true);
         jScrollP_Proy.setViewportView(facturas_jTbl);
 
         javax.swing.GroupLayout listaProy_jpnlLayout = new javax.swing.GroupLayout(listaProy_jpnl);
@@ -182,6 +189,7 @@ public class FacturasView extends javax.swing.JPanel {
 
         jLabel1.setText("Nombre:");
 
+        idFAC_txt.setEnabled(false);
         idFAC_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idFAC_txtActionPerformed(evt);
@@ -194,7 +202,7 @@ public class FacturasView extends javax.swing.JPanel {
 
         jLabel7.setText("Propuesta:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "22001_20220613_Roche_AB", "21016_20220523_AZ_Slide Kit ", " " }));
 
         javax.swing.GroupLayout datosPR_pnlLayout = new javax.swing.GroupLayout(datosPR_pnl);
         datosPR_pnl.setLayout(datosPR_pnlLayout);

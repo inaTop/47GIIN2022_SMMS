@@ -65,6 +65,7 @@ public class UsuariosView extends javax.swing.JPanel {
         roles_combo = new javax.swing.JComboBox<>();
         codigoU_lbl = new javax.swing.JLabel();
         codigoU_txt = new javax.swing.JButton();
+        agregarRol_btn = new javax.swing.JButton();
         opcionesUser_jpnl = new javax.swing.JPanel();
         nuevoUser_btn = new javax.swing.JButton();
         editUser_btn = new javax.swing.JButton();
@@ -109,6 +110,8 @@ public class UsuariosView extends javax.swing.JPanel {
 
         codigoU_lbl.setText("Codigo");
 
+        agregarRol_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descarga.png"))); // NOI18N
+
         javax.swing.GroupLayout datosUsuario_jpnlLayout = new javax.swing.GroupLayout(datosUsuario_jpnl);
         datosUsuario_jpnl.setLayout(datosUsuario_jpnlLayout);
         datosUsuario_jpnlLayout.setHorizontalGroup(
@@ -130,7 +133,9 @@ public class UsuariosView extends javax.swing.JPanel {
                         .addComponent(nomUsuario_txt))
                     .addGroup(datosUsuario_jpnlLayout.createSequentialGroup()
                         .addComponent(roles_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(agregarRol_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
                         .addComponent(codigoU_lbl)
                         .addGap(18, 18, 18)
                         .addComponent(codigoU_txt)))
@@ -139,13 +144,14 @@ public class UsuariosView extends javax.swing.JPanel {
         datosUsuario_jpnlLayout.setVerticalGroup(
             datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datosUsuario_jpnlLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(28, 28, 28)
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(codigoU_txt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(rol_lbl)
                         .addComponent(roles_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(codigoU_lbl)))
+                        .addComponent(codigoU_lbl))
+                    .addComponent(agregarRol_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(datosUsuario_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomUser_lbl)
@@ -290,7 +296,7 @@ public class UsuariosView extends javax.swing.JPanel {
                     .addComponent(buscarUser_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscarUser_btn))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollP_Users, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addComponent(jScrollP_Users, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -422,6 +428,7 @@ public class UsuariosView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregarRol_btn;
     private javax.swing.JButton buscarUser_btn;
     private javax.swing.JTextField buscarUser_txt;
     private javax.swing.JLabel codigoU_lbl;
