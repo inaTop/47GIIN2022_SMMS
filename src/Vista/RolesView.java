@@ -41,11 +41,9 @@ public class RolesView extends javax.swing.JPanel {
         codPR_lbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         idCLI_txt = new javax.swing.JTextField();
-        descripcionCLI_txt = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        empresaCLI_txt = new javax.swing.JTextField();
         nomCLI_txt = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setBackground(java.awt.SystemColor.controlHighlight);
         setMaximumSize(new java.awt.Dimension(750, 550));
@@ -201,9 +199,18 @@ public class RolesView extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setText("Empresa:");
-
-        jLabel7.setText("Descripción:");
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Codigo ", "Nombre permiso", "Descripción"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout datosPR_pnlLayout = new javax.swing.GroupLayout(datosPR_pnl);
         datosPR_pnl.setLayout(datosPR_pnlLayout);
@@ -212,22 +219,13 @@ public class RolesView extends javax.swing.JPanel {
             .addGroup(datosPR_pnlLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(datosPR_pnlLayout.createSequentialGroup()
-                        .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(codPR_lbl))
-                        .addGap(31, 31, 31)
-                        .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(datosPR_pnlLayout.createSequentialGroup()
-                        .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(empresaCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(descripcionCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel1)
+                    .addComponent(codPR_lbl))
+                .addGap(31, 31, 31)
+                .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(idCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
+                    .addComponent(nomCLI_txt))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         datosPR_pnlLayout.setVerticalGroup(
@@ -241,15 +239,9 @@ public class RolesView extends javax.swing.JPanel {
                 .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(nomCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(empresaCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(24, 24, 24)
-                .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(descripcionCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(115, 115, 115))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(284, 284, 284))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -283,14 +275,6 @@ public class RolesView extends javax.swing.JPanel {
 
     }//GEN-LAST:event_nuevoCLI_btnActionPerformed
 
-    private void guardarCLI_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCLI_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_guardarCLI_btnActionPerformed
-
-    private void salir_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir_btnActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_salir_btnActionPerformed
-
     private void idCLI_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCLI_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idCLI_txtActionPerformed
@@ -299,22 +283,28 @@ public class RolesView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarCLI_btnActionPerformed
 
+    private void guardarCLI_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCLI_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarCLI_btnActionPerformed
+
+    private void salir_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir_btnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salir_btnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarCLI_btn;
     private javax.swing.JTextField buscarCLI_txt;
     private javax.swing.JLabel codPR_lbl;
     private javax.swing.JPanel datosPR_pnl;
-    private javax.swing.JTextField descripcionCLI_txt;
     private javax.swing.JButton editCLI_btn;
     private javax.swing.JButton eliminarCLI_btn;
-    private javax.swing.JTextField empresaCLI_txt;
     private javax.swing.JButton guardarCLI_btn;
     private javax.swing.JTextField idCLI_txt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollP_Proy;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel listaCLI_jpnl;
     private javax.swing.JTextField nomCLI_txt;
     private javax.swing.JButton nuevoCLI_btn;
