@@ -24,9 +24,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EmpresasCRUD implements IEmpresas {
     
-    
-    
-    
+    /**
+     *
+     * @param empresa
+     * @return
+     */
     @Override
     public boolean anyadirEmpresa(EmpresaM empresa){
       boolean anyadir=false; 
@@ -55,7 +57,10 @@ public class EmpresasCRUD implements IEmpresas {
         
     }
     
-    
+    /**
+     *
+     * @return
+     */
     @Override
     public List<EmpresaM> obtenerEmpresa(){
         
@@ -92,7 +97,11 @@ public class EmpresasCRUD implements IEmpresas {
         
     }
     
-    
+    /**
+     *
+     * @param empresa
+     * @return
+     */
     @Override
     public boolean modificarEmpresa(EmpresaM empresa){
         
@@ -119,6 +128,11 @@ public class EmpresasCRUD implements IEmpresas {
          
     }
     
+    /**
+     *
+     * @param empresa
+     * @return
+     */
     @Override
     public boolean eliminarEmpresa(EmpresaM empresa){
        
@@ -149,7 +163,11 @@ public class EmpresasCRUD implements IEmpresas {
         
     }
     
-    
+    /**
+     *
+     * @param buscar
+     * @return
+     */
     public DefaultTableModel mostrar(String buscar)
     {
         
