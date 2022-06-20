@@ -69,6 +69,8 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_Empresas = new javax.swing.JMenu();
         jM_usuarios = new javax.swing.JMenu();
+        jMenuItem_roles = new javax.swing.JMenuItem();
+        jMenuItem_usuario = new javax.swing.JMenuItem();
         jM_Proyectos = new javax.swing.JMenu();
         jM_tareas = new javax.swing.JMenu();
         jM_clientes = new javax.swing.JMenu();
@@ -115,6 +117,28 @@ public class Home extends javax.swing.JFrame {
                 jM_usuariosMouseClicked(evt);
             }
         });
+
+        jMenuItem_roles.setText("Roles y permisos");
+        jMenuItem_roles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem_rolesMouseClicked(evt);
+            }
+        });
+        jMenuItem_roles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_rolesActionPerformed(evt);
+            }
+        });
+        jM_usuarios.add(jMenuItem_roles);
+
+        jMenuItem_usuario.setText("Usuarios");
+        jMenuItem_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem_usuarioMouseClicked(evt);
+            }
+        });
+        jM_usuarios.add(jMenuItem_usuario);
+
         jMenuBar1.add(jM_usuarios);
 
         jM_Proyectos.setText("Proyectos");
@@ -150,6 +174,11 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1.add(jM_fact);
 
         jM_informes.setText("Informes ");
+        jM_informes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jM_informesMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jM_informes);
 
         Salir_menu.setText("Salir");
@@ -199,6 +228,26 @@ public class Home extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_Salir_menuMouseClicked
 
+    private void jMenuItem_rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_rolesActionPerformed
+        RolesView pr= new RolesView();
+        ShowPanel(pr);
+    }//GEN-LAST:event_jMenuItem_rolesActionPerformed
+
+    private void jMenuItem_rolesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem_rolesMouseClicked
+        RolesView pr= new RolesView();
+        ShowPanel(pr);
+    }//GEN-LAST:event_jMenuItem_rolesMouseClicked
+
+    private void jMenuItem_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem_usuarioMouseClicked
+       UsuariosView pr= new UsuariosView();
+       ShowPanel(pr);
+    }//GEN-LAST:event_jMenuItem_usuarioMouseClicked
+
+    private void jM_informesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jM_informesMouseClicked
+        InformesView pr= new InformesView();
+        ShowPanel(pr);
+    }//GEN-LAST:event_jM_informesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -244,5 +293,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu jM_usuarios;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem_roles;
+    private javax.swing.JMenuItem jMenuItem_usuario;
     // End of variables declaration//GEN-END:variables
 }
