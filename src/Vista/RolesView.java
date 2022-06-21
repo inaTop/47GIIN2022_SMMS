@@ -4,17 +4,29 @@
  */
 package Vista;
 
+import DAO.EmpresasCRUD;
+import DAO.RolesCRUD;
+import Modelo.EmpresaM;
+import Modelo.RolesM;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author InaRu
  */
 public class RolesView extends javax.swing.JPanel {
+    
+    private String accion = "guardar";
 
     /**
      * Creates new form ProyectosView
      */
     public RolesView() {
         initComponents();
+        mostrar("");
+        idROL_txt.setEnabled(false);
     }
 
     /**
@@ -27,23 +39,23 @@ public class RolesView extends javax.swing.JPanel {
     private void initComponents() {
 
         opcionesProy_jpnl = new javax.swing.JPanel();
-        nuevoCLI_btn = new javax.swing.JButton();
-        editCLI_btn = new javax.swing.JButton();
-        eliminarCLI_btn = new javax.swing.JButton();
-        guardarCLI_btn = new javax.swing.JButton();
+        nuevoROL_btn = new javax.swing.JButton();
+        editROL_btn = new javax.swing.JButton();
+        eliminarROL_btn = new javax.swing.JButton();
+        guardarROL_btn = new javax.swing.JButton();
         salir_btn = new javax.swing.JButton();
         listaCLI_jpnl = new javax.swing.JPanel();
-        buscarCLI_txt = new javax.swing.JTextField();
-        buscarCLI_btn = new javax.swing.JButton();
+        buscarROL_txt = new javax.swing.JTextField();
+        buscarROL_btn = new javax.swing.JButton();
         jScrollP_Proy = new javax.swing.JScrollPane();
         roles_jTbl = new javax.swing.JTable();
         datosPR_pnl = new javax.swing.JPanel();
         codPR_lbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        idCLI_txt = new javax.swing.JTextField();
-        nomCLI_txt = new javax.swing.JTextField();
+        idROL_txt = new javax.swing.JTextField();
+        nomROL_txt = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtbl_permisos = new javax.swing.JTable();
 
         setBackground(java.awt.SystemColor.controlHighlight);
         setMaximumSize(new java.awt.Dimension(750, 550));
@@ -53,33 +65,43 @@ public class RolesView extends javax.swing.JPanel {
         opcionesProy_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         opcionesProy_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
 
-        nuevoCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
-        nuevoCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        nuevoCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
-        nuevoCLI_btn.setText("Nuevo");
-        nuevoCLI_btn.addActionListener(new java.awt.event.ActionListener() {
+        nuevoROL_btn.setBackground(new java.awt.Color(0, 153, 204));
+        nuevoROL_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        nuevoROL_btn.setForeground(new java.awt.Color(255, 255, 255));
+        nuevoROL_btn.setText("Nuevo");
+        nuevoROL_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nuevoCLI_btnActionPerformed(evt);
+                nuevoROL_btnActionPerformed(evt);
             }
         });
 
-        editCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
-        editCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        editCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
-        editCLI_btn.setText("Editar");
-
-        eliminarCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
-        eliminarCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        eliminarCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
-        eliminarCLI_btn.setText("Eliminar");
-
-        guardarCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
-        guardarCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        guardarCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
-        guardarCLI_btn.setText("Guardar");
-        guardarCLI_btn.addActionListener(new java.awt.event.ActionListener() {
+        editROL_btn.setBackground(new java.awt.Color(0, 153, 204));
+        editROL_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        editROL_btn.setForeground(new java.awt.Color(255, 255, 255));
+        editROL_btn.setText("Editar");
+        editROL_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarCLI_btnActionPerformed(evt);
+                editROL_btnActionPerformed(evt);
+            }
+        });
+
+        eliminarROL_btn.setBackground(new java.awt.Color(0, 153, 204));
+        eliminarROL_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        eliminarROL_btn.setForeground(new java.awt.Color(255, 255, 255));
+        eliminarROL_btn.setText("Eliminar");
+        eliminarROL_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarROL_btnActionPerformed(evt);
+            }
+        });
+
+        guardarROL_btn.setBackground(new java.awt.Color(0, 153, 204));
+        guardarROL_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        guardarROL_btn.setForeground(new java.awt.Color(255, 255, 255));
+        guardarROL_btn.setText("Guardar");
+        guardarROL_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarROL_btnActionPerformed(evt);
             }
         });
 
@@ -101,23 +123,23 @@ public class RolesView extends javax.swing.JPanel {
                 .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(opcionesProy_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(salir_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(guardarCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(eliminarCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nuevoCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guardarROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminarROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nuevoROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
         opcionesProy_jpnlLayout.setVerticalGroup(
             opcionesProy_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(opcionesProy_jpnlLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(nuevoCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nuevoROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(editCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(eliminarCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(eliminarROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(guardarCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(guardarROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(salir_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -126,13 +148,13 @@ public class RolesView extends javax.swing.JPanel {
         listaCLI_jpnl.setBackground(java.awt.SystemColor.controlHighlight);
         listaCLI_jpnl.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista roles :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(0, 153, 204))); // NOI18N
 
-        buscarCLI_btn.setBackground(new java.awt.Color(0, 153, 204));
-        buscarCLI_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buscarCLI_btn.setForeground(new java.awt.Color(255, 255, 255));
-        buscarCLI_btn.setText("Buscar");
-        buscarCLI_btn.addActionListener(new java.awt.event.ActionListener() {
+        buscarROL_btn.setBackground(new java.awt.Color(0, 153, 204));
+        buscarROL_btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buscarROL_btn.setForeground(new java.awt.Color(255, 255, 255));
+        buscarROL_btn.setText("Buscar");
+        buscarROL_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarCLI_btnActionPerformed(evt);
+                buscarROL_btnActionPerformed(evt);
             }
         });
 
@@ -156,6 +178,11 @@ public class RolesView extends javax.swing.JPanel {
             }
         });
         roles_jTbl.getTableHeader().setReorderingAllowed(false);
+        roles_jTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                roles_jTblMouseClicked(evt);
+            }
+        });
         jScrollP_Proy.setViewportView(roles_jTbl);
 
         javax.swing.GroupLayout listaCLI_jpnlLayout = new javax.swing.GroupLayout(listaCLI_jpnl);
@@ -169,9 +196,9 @@ public class RolesView extends javax.swing.JPanel {
                         .addComponent(jScrollP_Proy, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(listaCLI_jpnlLayout.createSequentialGroup()
-                        .addComponent(buscarCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buscarROL_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buscarCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buscarROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
         );
         listaCLI_jpnlLayout.setVerticalGroup(
@@ -179,8 +206,8 @@ public class RolesView extends javax.swing.JPanel {
             .addGroup(listaCLI_jpnlLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(listaCLI_jpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscarCLI_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buscarROL_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarROL_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollP_Proy, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -193,13 +220,13 @@ public class RolesView extends javax.swing.JPanel {
 
         jLabel1.setText("Nombre:");
 
-        idCLI_txt.addActionListener(new java.awt.event.ActionListener() {
+        idROL_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idCLI_txtActionPerformed(evt);
+                idROL_txtActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_permisos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -210,7 +237,7 @@ public class RolesView extends javax.swing.JPanel {
                 "Codigo ", "Nombre permiso", "Descripción"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtbl_permisos);
 
         javax.swing.GroupLayout datosPR_pnlLayout = new javax.swing.GroupLayout(datosPR_pnl);
         datosPR_pnl.setLayout(datosPR_pnlLayout);
@@ -223,9 +250,9 @@ public class RolesView extends javax.swing.JPanel {
                     .addComponent(codPR_lbl))
                 .addGap(31, 31, 31)
                 .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(idCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idROL_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
-                    .addComponent(nomCLI_txt))
+                    .addComponent(nomROL_txt))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         datosPR_pnlLayout.setVerticalGroup(
@@ -233,12 +260,12 @@ public class RolesView extends javax.swing.JPanel {
             .addGroup(datosPR_pnlLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idROL_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(codPR_lbl))
                 .addGap(21, 21, 21)
                 .addGroup(datosPR_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(nomCLI_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomROL_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(284, 284, 284))
@@ -271,45 +298,166 @@ public class RolesView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nuevoCLI_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoCLI_btnActionPerformed
+    private void nuevoROL_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoROL_btnActionPerformed
 
-    }//GEN-LAST:event_nuevoCLI_btnActionPerformed
+          idROL_txt.setEnabled(false);
+         accion="guardar"; 
+         
+         if (nomROL_txt.getText().length() == 0) {
+            JOptionPane.showConfirmDialog(null, "Debes ingresar un nombre de rol de usuario");
+            nomROL_txt.requestFocus();
+            return;
+        }
+        
+        RolesM rdatos=new RolesM();
+        RolesCRUD rm=new RolesCRUD();
+        
+        rdatos.setNom_rol(nomROL_txt.getText());
+        
+        
+        if(accion.equals("guardar")){
+            if(rm.anyadirRol(rdatos)){
+                JOptionPane.showMessageDialog(null, "El rol ha sido agregado satisfactoriamente");
+               
+            }
+                     
+        }      
+    }//GEN-LAST:event_nuevoROL_btnActionPerformed
 
-    private void idCLI_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCLI_txtActionPerformed
+    private void idROL_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idROL_txtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idCLI_txtActionPerformed
+    }//GEN-LAST:event_idROL_txtActionPerformed
 
-    private void buscarCLI_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCLI_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscarCLI_btnActionPerformed
+    private void buscarROL_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarROL_btnActionPerformed
+        mostrar(buscarROL_txt.getText());
+    }//GEN-LAST:event_buscarROL_btnActionPerformed
 
-    private void guardarCLI_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCLI_btnActionPerformed
+    private void guardarROL_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarROL_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_guardarCLI_btnActionPerformed
+    }//GEN-LAST:event_guardarROL_btnActionPerformed
 
     private void salir_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir_btnActionPerformed
         System.exit(0);
     }//GEN-LAST:event_salir_btnActionPerformed
 
+    private void roles_jTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roles_jTblMouseClicked
+        idROL_txt.setEnabled(false);
+        accion="Modificar";
+        int fila = roles_jTbl.rowAtPoint(evt.getPoint());
+        
+        idROL_txt.setText(roles_jTbl.getValueAt(fila, 0).toString());
+        nomROL_txt.setText(roles_jTbl.getValueAt(fila, 1).toString());
+        
+    }//GEN-LAST:event_roles_jTblMouseClicked
+
+    private void eliminarROL_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarROL_btnActionPerformed
+        idROL_txt.setEnabled(false);    
+        int fila = roles_jTbl.getSelectedRow();
+        if (fila < 0) {
+            JOptionPane.showMessageDialog(null,"Rol no Seleccionado");
+        } else {
+            if (!idROL_txt.getText().equals("")) {
+            int confirmacion = JOptionPane.showConfirmDialog(null, 
+                "Estás seguro de eliminar este rol?","Confirmar",2);
+            
+            if (confirmacion==0) {
+                RolesCRUD r = new RolesCRUD();
+                RolesM rm= new RolesM();
+                
+                rm.setID_rol(Integer.parseInt(idROL_txt.getText()));
+                r.eliminarRol(rm);
+                mostrar("");
+                
+                
+            } 
+        }
+    }                                     
+    }//GEN-LAST:event_eliminarROL_btnActionPerformed
+
+    private void editROL_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editROL_btnActionPerformed
+          accion="Modificar"; 
+        idROL_txt.setEnabled(false); 
+         if (nomROL_txt.getText().length() == 0) {
+            JOptionPane.showConfirmDialog(null, "Debes ingresar un nombre para el rol");
+            nomROL_txt.requestFocus();
+            return;
+        }
+        
+        RolesM rdatos=new RolesM();
+        RolesCRUD rm=new RolesCRUD();
+        
+        rdatos.setNom_rol(nomROL_txt.getText());
+       
+        
+        if ( accion.equals("Modificar")){
+            rdatos.setID_rol(Integer.parseInt(idROL_txt.getText()));
+            
+            if(rm.modificarRol(rdatos)){
+                 JOptionPane.showMessageDialog(null, "El rol ha sido modificado satisfactoriamente");
+                 mostrar("");
+                 
+            }
+            
+        }
+    }//GEN-LAST:event_editROL_btnActionPerformed
+
+    void inhabilitar() {
+     
+    
+        idROL_txt.setEnabled(false);
+        nomROL_txt.setEnabled(false);
+      
+        editROL_btn.setEnabled(false);
+        nuevoROL_btn.setEnabled(false);
+        eliminarROL_btn.setEnabled(false);
+       
+        
+        idROL_txt.setText("");
+        nomROL_txt.setText("");
+        
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buscarCLI_btn;
-    private javax.swing.JTextField buscarCLI_txt;
+    private javax.swing.JButton buscarROL_btn;
+    private javax.swing.JTextField buscarROL_txt;
     private javax.swing.JLabel codPR_lbl;
     private javax.swing.JPanel datosPR_pnl;
-    private javax.swing.JButton editCLI_btn;
-    private javax.swing.JButton eliminarCLI_btn;
-    private javax.swing.JButton guardarCLI_btn;
-    private javax.swing.JTextField idCLI_txt;
+    private javax.swing.JButton editROL_btn;
+    private javax.swing.JButton eliminarROL_btn;
+    private javax.swing.JButton guardarROL_btn;
+    private javax.swing.JTextField idROL_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollP_Proy;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtbl_permisos;
     private javax.swing.JPanel listaCLI_jpnl;
-    private javax.swing.JTextField nomCLI_txt;
-    private javax.swing.JButton nuevoCLI_btn;
+    private javax.swing.JTextField nomROL_txt;
+    private javax.swing.JButton nuevoROL_btn;
     private javax.swing.JPanel opcionesProy_jpnl;
     private javax.swing.JTable roles_jTbl;
     private javax.swing.JButton salir_btn;
     // End of variables declaration//GEN-END:variables
+
+void mostrar(String buscar) {
+        try {
+            DefaultTableModel modelo;
+            RolesCRUD rm = new RolesCRUD();
+            modelo= rm.mostrar(buscar);
+
+            roles_jTbl.setModel(modelo);
+
+        } catch (Exception e) {
+            Component rootPane = null;
+            JOptionPane.showConfirmDialog(rootPane, e);
+        }
+    }
+
+
+
+
+
+
+
+
 }

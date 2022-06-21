@@ -81,10 +81,10 @@
                   <EmptySpace pref="33" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="salir_btn" min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="guardarCLI_btn" min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="eliminarCLI_btn" min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="editCLI_btn" min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="nuevoCLI_btn" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="guardarROL_btn" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="eliminarROL_btn" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="editROL_btn" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="nuevoROL_btn" min="-2" pref="116" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
@@ -94,13 +94,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="nuevoCLI_btn" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="nuevoROL_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="editCLI_btn" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="editROL_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="eliminarCLI_btn" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="eliminarROL_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="guardarCLI_btn" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="guardarROL_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="salir_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -109,7 +109,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="nuevoCLI_btn">
+        <Component class="javax.swing.JButton" name="nuevoROL_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="99" red="0" type="rgb"/>
@@ -123,10 +123,10 @@
             <Property name="text" type="java.lang.String" value="Nuevo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nuevoCLI_btnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nuevoROL_btnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="editCLI_btn">
+        <Component class="javax.swing.JButton" name="editROL_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="99" red="0" type="rgb"/>
@@ -139,8 +139,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editROL_btnActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="eliminarCLI_btn">
+        <Component class="javax.swing.JButton" name="eliminarROL_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="99" red="0" type="rgb"/>
@@ -153,8 +156,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarROL_btnActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="guardarCLI_btn">
+        <Component class="javax.swing.JButton" name="guardarROL_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="99" red="0" type="rgb"/>
@@ -168,7 +174,7 @@
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarCLI_btnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarROL_btnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="salir_btn">
@@ -216,9 +222,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="buscarCLI_txt" min="-2" pref="550" max="-2" attributes="0"/>
+                          <Component id="buscarROL_txt" min="-2" pref="550" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="buscarCLI_btn" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="buscarROL_btn" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -230,8 +236,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buscarCLI_btn" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="buscarCLI_txt" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="buscarROL_btn" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="buscarROL_txt" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollP_Proy" min="-2" pref="167" max="-2" attributes="0"/>
@@ -241,9 +247,9 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="buscarCLI_txt">
+        <Component class="javax.swing.JTextField" name="buscarROL_txt">
         </Component>
-        <Component class="javax.swing.JButton" name="buscarCLI_btn">
+        <Component class="javax.swing.JButton" name="buscarROL_btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="99" red="0" type="rgb"/>
@@ -257,7 +263,7 @@
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarCLI_btnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarROL_btnActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollP_Proy">
@@ -299,6 +305,9 @@
                   <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="roles_jTblMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -330,9 +339,9 @@
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="idCLI_txt" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="idROL_txt" min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" alignment="0" pref="444" max="32767" attributes="0"/>
-                      <Component id="nomCLI_txt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="nomROL_txt" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -343,13 +352,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="idCLI_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="idROL_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="codPR_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nomCLI_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomROL_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="120" max="-2" attributes="0"/>
@@ -369,12 +378,12 @@
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="idCLI_txt">
+        <Component class="javax.swing.JTextField" name="idROL_txt">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idCLI_txtActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idROL_txtActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="nomCLI_txt">
+        <Component class="javax.swing.JTextField" name="nomROL_txt">
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -383,7 +392,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="jtbl_permisos">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="3" rowCount="4">
